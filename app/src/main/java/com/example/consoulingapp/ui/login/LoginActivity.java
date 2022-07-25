@@ -14,9 +14,9 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.consoulingapp.RegisterActivity;
 import com.example.consoulingapp.databinding.ActivityLoginBinding;
 import com.example.consoulingapp.models.User;
+import com.example.consoulingapp.ui.register.RegisterActivity;
 
 public class LoginActivity extends AppCompatActivity {
 

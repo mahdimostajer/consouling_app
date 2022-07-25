@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -10,7 +9,7 @@
     android:layoutDirection="rtl"
     android:textDirection="rtl"
     android:transitionName="transition_register"
-    tools:context=".ui.register.RegisterActivity">
+    tools:context=".ui.register.SecondRegisterActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -41,7 +40,6 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:text="ثبت‌نام"
-                android:textAllCaps="true"
                 android:textColor="@color/black"
                 android:textSize="40sp"
                 android:transitionName="transition_title_text" />
@@ -57,7 +55,7 @@
                 android:background="@drawable/circle_black_border"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="۱/۳"
+                android:text="۲/۳"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="30sp"
@@ -73,49 +71,52 @@
             android:layout_marginTop="40dp"
             android:orientation="vertical">
             <RadioGroup
-                android:id="@+id/type"
+                android:id="@+id/gender"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="40dp"
                 android:orientation="horizontal">
 
 
                 <RadioButton
-                    android:id="@+id/student"
+                    android:id="@+id/male"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="دانش‌آموز"
-
+                    android:text="مرد"
                     />
 
 
                 <RadioButton
-                    android:id="@+id/teacher"
+                    android:id="@+id/female"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="مشاور"
+                    android:text="زن"
 
                     />
 
+                <RadioButton
+                    android:id="@+id/other"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="سایر"
 
+                    />
 
             </RadioGroup>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/register_username"
+                android:id="@+id/register_firstname"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="نام کاربری"
+                android:hint="نام"
                 android:textColorHint="@color/black"
                 app:boxStrokeColor="@color/black"
                 app:boxStrokeWidthFocused="2dp"
                 app:endIconMode="clear_text"
                 app:endIconTint="@color/black"
                 app:hintTextColor="@color/black"
-                app:startIconDrawable="@drawable/field_username_icon"
                 app:startIconTint="@color/black">
 
 
@@ -128,88 +129,107 @@
 
 
             </com.google.android.material.textfield.TextInputLayout>
-
-<!--
-
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/register_email"
+                android:id="@+id/register_lastname"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/enter_email"
+                android:hint="نام خانوادگی"
                 android:textColorHint="@color/black"
                 app:boxStrokeColor="@color/black"
                 app:boxStrokeWidthFocused="2dp"
                 app:endIconMode="clear_text"
                 app:endIconTint="@color/black"
                 app:hintTextColor="@color/black"
-                app:startIconDrawable="@drawable/field_email_icon"
                 app:startIconTint="@color/black">
 
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:fontFamily="@font/muli_semibold"
-                    android:inputType="textEmailAddress"
-                    android:textColor="@color/black"
-                    android:textCursorDrawable="@null" />
-
-
-            </com.google.android.material.textfield.TextInputLayout>
-
--->
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/register_password"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="رمز عبور"
-                android:textColorHint="@color/black"
-                app:boxStrokeColor="@color/black"
-                app:boxStrokeWidthFocused="2dp"
-                app:endIconTint="@color/black"
-                app:hintTextColor="@color/black"
-                app:passwordToggleEnabled="true"
-                app:passwordToggleTint="@color/black"
-                app:startIconTint="@color/black">
-
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:inputType="textPassword"
+                    android:inputType="text"
                     android:textColor="@color/black"
                     android:textCursorDrawable="@null" />
 
 
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/register_confirm_password"
+                android:id="@+id/register_province"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="تکرار رمز عبور"
+                android:hint="استان"
                 android:textColorHint="@color/black"
                 app:boxStrokeColor="@color/black"
                 app:boxStrokeWidthFocused="2dp"
+                app:endIconMode="clear_text"
                 app:endIconTint="@color/black"
                 app:hintTextColor="@color/black"
-                app:passwordToggleEnabled="true"
-                app:passwordToggleTint="@color/black"
+                app:startIconTint="@color/black">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:textCursorDrawable="@null" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/register_city"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="شهر"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="@color/black"
+                app:boxStrokeWidthFocused="2dp"
+                app:endIconMode="clear_text"
+                app:endIconTint="@color/black"
+                app:hintTextColor="@color/black"
                 app:startIconTint="@color/black">
 
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:inputType="textPassword"
+                    android:inputType="text"
                     android:textColor="@color/black"
                     android:textCursorDrawable="@null" />
 
-
             </com.google.android.material.textfield.TextInputLayout>
+
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                android:id="@+id/register_province"-->
+<!--                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:hint="@string/enter_email"-->
+<!--                android:textColorHint="@color/black"-->
+<!--                app:boxStrokeColor="@color/black"-->
+<!--                app:boxStrokeWidthFocused="2dp"-->
+<!--                app:endIconMode="clear_text"-->
+<!--                app:endIconTint="@color/black"-->
+<!--                app:hintTextColor="@color/black"-->
+<!--                app:startIconDrawable="@drawable/field_email_icon"-->
+<!--                app:startIconTint="@color/black">-->
+
+
+<!--                <com.google.android.material.textfield.TextInputEditText-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:fontFamily="@font/muli_semibold"-->
+<!--                    android:inputType="textEmailAddress"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textCursorDrawable="@null" />-->
+
+
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
+
+
+
 
 
         </LinearLayout>
@@ -226,20 +246,6 @@
             android:text="بعدی"
             android:textColor="@color/black"
             android:transitionName="transition_next_btn" />
-
-
-        <Button
-            android:id="@+id/register_login_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="#00000000"
-            android:elevation="5dp"
-            android:onClick="callLoginFromRegister"
-            android:text="ورود"
-            android:textColor="@color/teal_700"
-            android:transitionName="transition_login_btn" />
-
 
     </LinearLayout>
 

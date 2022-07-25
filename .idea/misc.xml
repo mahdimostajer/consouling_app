@@ -3,10 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/User/AndroidStudioProjects/ConsoulingApp/app/src/main/res/layout/activity_login.xml" value="0.2" />
         <entry key="..\:/Users/User/AndroidStudioProjects/ConsoulingApp/app/src/main/res/layout/activity_main.xml" value="0.2421875" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/ConsoulingApp/app/src/main/res/layout/activity_register.xml" value="0.2421875" />
         <entry key="..\:/Users/User/AndroidStudioProjects/ConsoulingApp/app/src/main/res/layout/fragment_on_board.xml" value="0.2421875" />
+        <entry key="app/src/main/res/drawable/circle_black_border.xml" value="0.1645" />
+        <entry key="app/src/main/res/drawable/ic_screen_shot_1400_02_04_at_15_17_18.xml" value="0.1645" />
+        <entry key="app/src/main/res/drawable/ic_test.xml" value="0.1645" />
+        <entry key="app/src/main/res/drawable/role.xml" value="0.1645" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.14114583333333333" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/layout/activity_register.xml" value="0.221956974085703" />
+        <entry key="app/src/main/res/layout/activity_second_register.xml" value="0.20319213867187502" />
+        <entry key="app/src/main/res/layout/activity_second_signup.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/layout/activity_signup.xml" value="0.20667317708333333" />
+        <entry key="app/src/main/res/layout/activity_third_register.xml" value="0.1865639916078292" />
+        <entry key="app/src/main/res/layout/activity_third_signup.xml" value="0.13805440266927083" />
       </map>
     </option>
   </component>
