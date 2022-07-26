@@ -1,30 +1,37 @@
 package com.example.consoulingapp;
 
+import android.app.Application;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.lifecycle.MutableLiveData;
 
+import com.example.consoulingapp.models.LoginResp;
 import com.example.consoulingapp.models.User;
 import com.example.consoulingapp.network.LoginUtils;
 import com.google.gson.Gson;
 
 public class LoginRepository {
-    public MutableLiveData<User> user = new MutableLiveData<>();
+    public MutableLiveData<LoginResp> user = new MutableLiveData<>();
+    public Application application;
 
-
-    public LoginRepository() {
+    public LoginRepository(Application application) {
+        this.application = application;
     }
 
-    public void authenticate(String username, String password){
-        new fetchUser(user).execute(username, password);
+    public void authenticate(String username, String password) {
+        new fetchUser(user, application).execute(username, password);
     }
 
-    public class fetchUser extends AsyncTask<String, Void, String>{
-        MutableLiveData<User> user;
+    public class fetchUser extends AsyncTask<String, Void, String> {
+        MutableLiveData<LoginResp> user;
+        Application application;
 
-        public fetchUser(MutableLiveData<User> user) {
+        public fetchUser(MutableLiveData<LoginResp> user, Application application
+        ) {
             this.user = user;
+            this.application = application;
         }
 
         @Override
@@ -36,10 +43,13 @@ public class LoginRepository {
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
+            if (s == null) {
+                Toast.makeText(application, "اطلاعات وارد شده صحیح نیست", Toast.LENGTH_LONG).show();
+                return;
+            }
             Gson gson = new Gson();
-            //Resp resp = gson.fromJson(s, Resp.class);
-            User newUser = new User("ali", "akbari");
-            user.setValue(newUser);
+            LoginResp resp = gson.fromJson(s, LoginResp.class);
+            user.setValue(resp);
         }
     }
 }

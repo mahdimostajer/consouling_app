@@ -30,8 +30,13 @@ public class LoginUtils {
                 .post(requestBody)
                 .build();
 
+
         try {
             Response response = client.newCall(request).execute();
+            if (response.code() == 401) {
+                Log.d("not authorized", "gholam");
+                return null;
+            }
             String res = response.body().string();
             Log.d("response",res);
             return res;

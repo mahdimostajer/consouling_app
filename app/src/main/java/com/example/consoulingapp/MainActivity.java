@@ -49,9 +49,9 @@ public class MainActivity extends AppCompatActivity {
 
     private ArrayList<PaperOnboardingPage> getDataforOnboarding() {
 
-        PaperOnboardingPage source = new PaperOnboardingPage("Gfg", "Welcome to GeeksForGeeks", Color.parseColor("#ffb174"),R.drawable.ic_test, R.drawable.ic_test);
-        PaperOnboardingPage source1 = new PaperOnboardingPage("Practice", "Practice questions from all topics", Color.parseColor("#22eaaa"),R.drawable.ic_test, R.drawable.ic_test);
-        PaperOnboardingPage source2 = new PaperOnboardingPage("hmmm", " jkhgjkl", Color.parseColor("#ee5a5a"),R.drawable.ic_test, R.drawable.ic_test);
+        PaperOnboardingPage source = new PaperOnboardingPage("ارتباط با مشاور تحصیلی", "در اپلیکیشن ما می\u200Cتوانید در طول روز بدون محدودیت با مشاور خودتون حرف بزنید و سوال\u200Cهاتون رو بپرسید.", Color.parseColor("#FFD95D"),R.drawable.android, R.drawable.ic_onboarding );
+        PaperOnboardingPage source1 = new PaperOnboardingPage("برنامه\u200Cریزی و مدیریت زمان", "ثبت ساعات مطالعه، خواب و تفریح در یک اپلیکیشن و دسترسی همیشگی به آنها به بازدهی شما کمک می\u200Cکند.", Color.parseColor("#0011A8"), R.drawable.anroid2,R.drawable.ic_onboarding);
+        PaperOnboardingPage source2 = new PaperOnboardingPage("تست\u200Cزنی و دریافت پاسخ", "ارزیابی مهم\u200Cترین مرحله در آموزش است، به کمک تست\u200Cهای آنلاین و تصحیح آنلاین ما از دیگران پیش بیافتید.", Color.parseColor("#A80000"), R.drawable.android3,R.drawable.ic_onboarding);
 
         ArrayList<PaperOnboardingPage> elements = new ArrayList<>();
 
