@@ -6,7 +6,7 @@ public class Client {
     private static Client single_instance = null;
     public OkHttpClient client;
 
-    public static final String BASE_URL = "https://1ac8-51-89-200-156.eu.ngrok.io/";
+    public static final String BASE_URL = "https://1ac8-51-89-200-156.eu.ngrok.io";
 
 
     private Client() {
