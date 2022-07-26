@@ -12,7 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ConsoulingApp">
         <activity
-            android:name=".RegisterActivity"
+            android:name=".ui.register.RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.register.SecondRegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.register.ThirdRegisterActivity"
             android:exported="false" />
         <activity
             android:name=".ui.login.LoginActivity"

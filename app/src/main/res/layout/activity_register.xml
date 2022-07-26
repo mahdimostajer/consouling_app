@@ -25,8 +25,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp"
-            android:src="@drawable/general_back_icon"
             android:transitionName="transition_back_arrow_btn" />
+<!--            android:src="@drawable/general_back_icon"-->
 
 
         <RelativeLayout
@@ -115,8 +115,8 @@
                 app:endIconMode="clear_text"
                 app:endIconTint="@color/black"
                 app:hintTextColor="@color/black"
-                app:startIconDrawable="@drawable/field_username_icon"
                 app:startIconTint="@color/black">
+<!--                app:startIconDrawable="@drawable/field_username_icon"-->
 
 
                 <com.google.android.material.textfield.TextInputEditText
