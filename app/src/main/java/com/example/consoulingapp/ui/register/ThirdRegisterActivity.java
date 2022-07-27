@@ -73,6 +73,7 @@ public class ThirdRegisterActivity extends AppCompatActivity {
     }
 
     public void register(View view) {
+        if (!validatePhoneNumber() || !validateCreditCard()) return;
         int year = datePicker.getYear();
         int month = datePicker.getMonth();
         int day = datePicker.getDayOfMonth();
@@ -98,5 +99,27 @@ public class ThirdRegisterActivity extends AppCompatActivity {
                  creditCard,
                  date
         );
+    }
+
+    private boolean validatePhoneNumber(){
+        String value = getTextInputLayoutValue(phoneInput);
+        if(value.isEmpty()){
+            phoneInput.setError("شماره تلفن نمیتواند خالی باشد");
+            return false;
+        }
+        phoneInput.setError(null);
+        phoneInput.setErrorEnabled(false);
+        return true;
+    }
+
+    private boolean validateCreditCard(){
+        String value = getTextInputLayoutValue(creditCardInput);
+        if(value.isEmpty()){
+            creditCardInput.setError("شماره کارت نمیتواند خالی باشد");
+            return false;
+        }
+        creditCardInput.setError(null);
+        creditCardInput.setErrorEnabled(false);
+        return true;
     }
 }

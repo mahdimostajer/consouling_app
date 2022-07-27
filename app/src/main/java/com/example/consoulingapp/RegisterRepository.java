@@ -6,6 +6,7 @@ import android.widget.Toast;
 
 import androidx.lifecycle.MutableLiveData;
 
+import com.example.consoulingapp.models.LoginResp;
 import com.example.consoulingapp.models.RegisterResponse;
 import com.example.consoulingapp.models.User;
 import com.example.consoulingapp.network.RegisterUtils;
@@ -14,6 +15,7 @@ import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.Map;
+import java.util.Objects;
 
 public class RegisterRepository {
     public MutableLiveData<RegisterResponse> registerResponse = new MutableLiveData<>();
@@ -84,14 +86,20 @@ public class RegisterRepository {
             }
             super.onPostExecute(s);
             Gson gson = new Gson();
-            Type mapType = new TypeToken<Map<String, String>>(){}.getType();
-            Map<String, String> map = new Gson().fromJson(s, mapType);
-            if (map.size() == 1){
-                Toast.makeText(application,(map.values().toArray()[0]).toString(),Toast.LENGTH_LONG).show();
+            Type mapType = new TypeToken<Map<String, Object>>(){}.getType();
+            try {
+                Map<String, Object> map = new Gson().fromJson(s, mapType);
+                if (map.size() == 1){
+                    Toast.makeText(application,(map.values().toArray()[0]).toString(),Toast.LENGTH_LONG).show();
+                }
+                else{
+                    RegisterResponse resp = gson.fromJson(s, RegisterResponse.class);
+                    registerResponse.setValue(resp);
+                }
             }
-            else{
-                RegisterResponse resp = gson.fromJson(s, RegisterResponse.class);
-                registerResponse.setValue(resp);
+            catch (Exception e) {
+                e.printStackTrace();
+                Toast.makeText(application, "خطایی رخ داده است", Toast.LENGTH_LONG).show();
             }
         }
     }

@@ -25,6 +25,8 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.Objects;
 
@@ -35,7 +37,9 @@ public class SecondRegisterActivity extends AppCompatActivity {
     TextInputLayout firstName;
     TextInputLayout lastName;
     MaterialAutoCompleteTextView provinceAutoCompleteTextView;
+    TextInputLayout provinceTextInputLayout;
     MaterialAutoCompleteTextView cityAutoCompleteTextView;
+    TextInputLayout cityTextInputLayout;
     Intent prevIntent;
 
     public static String FIRSTNAME = "SecondRegisterActivityFirstName";
@@ -44,7 +48,7 @@ public class SecondRegisterActivity extends AppCompatActivity {
     public static String CITY = "SecondRegisterActivityCity";
     public static String GENDER = "SecondRegisterActivityGender";
 
-    private String[] PROVINCES;
+    private ArrayList<String> PROVINCES;
     private Map<String, String[]> CITIES;
     private String citiesJson;
 
@@ -61,15 +65,18 @@ public class SecondRegisterActivity extends AppCompatActivity {
         firstName = binding.registerFirstname;
         lastName = binding.registerLastname;
         provinceAutoCompleteTextView = binding.registerProvince;
+        provinceTextInputLayout = binding.registerProvinceTextInputLayout;
         cityAutoCompleteTextView = binding.registerCity;
+        cityTextInputLayout = binding.registerCityTextInputLayout;
         setAutoCompleteFields();
     }
     private void setAutoCompleteFields(){
         setCitiesJson();
-        PROVINCES = (new String[]{"آذربایجان شرقی", "آذربایجان غربی", "اردبیل", "اصفهان", "البرز", "ایلام", "بوشهر", "تهران", "خراسان جنوبی",
-                "خراسان رضوی", "خراسان شمالی", "خوزستان", "زنجان", "سمنان", "سیستان و بلوچستان", "فارس", "قزوین", "قم",
-                "لرستان", "مازندران", "مرکزی", "هرمزگان", "همدان", "چهارمحال و بختیاری", "کردستان", "کرمان", "کرمانشاه",
-                "کهگیلویه وبویراحمد", "گلستان", "گیلان", "یزد"});
+        PROVINCES = new ArrayList<String>(
+                Arrays.asList("آذربایجان شرقی", "آذربایجان غربی", "اردبیل", "اصفهان", "البرز", "ایلام", "بوشهر", "تهران", "خراسان جنوبی",
+                        "خراسان رضوی", "خراسان شمالی", "خوزستان", "زنجان", "سمنان", "سیستان و بلوچستان", "فارس", "قزوین", "قم",
+                        "لرستان", "مازندران", "مرکزی", "هرمزگان", "همدان", "چهارمحال و بختیاری", "کردستان", "کرمان", "کرمانشاه",
+                        "کهگیلویه وبویراحمد", "گلستان", "گیلان", "یزد"));
         Type mapType = new TypeToken<Map<String, String[]>>(){}.getType();
         CITIES = new Gson().fromJson(citiesJson, mapType);
 
@@ -123,6 +130,7 @@ public class SecondRegisterActivity extends AppCompatActivity {
         else{
             return;
         }
+        if (!validateFirstName() || !validateLastName() || !validateProvince() || !validateCity()) return;
         Intent intent = new Intent(getApplicationContext(), ThirdRegisterActivity.class);
         intent.putExtras(prevIntent.getExtras());
         intent.putExtra(SecondRegisterActivity.FIRSTNAME, getTextInputLayoutValue(firstName));
@@ -134,6 +142,58 @@ public class SecondRegisterActivity extends AppCompatActivity {
 
 
     }
+
+    private boolean validateFirstName(){
+        String value = getTextInputLayoutValue(firstName);
+        if(value.isEmpty()){
+            firstName.setError("نام نمیتواند خالی باشد");
+            return false;
+        }
+        firstName.setError(null);
+        firstName.setErrorEnabled(false);
+        return true;
+    }
+    private boolean validateLastName(){
+        String value = getTextInputLayoutValue(lastName);
+        if(value.isEmpty()){
+            lastName.setError("نام خانوادگی نمیتواند خالی باشد");
+            return false;
+        }
+        lastName.setError(null);
+        lastName.setErrorEnabled(false);
+        return true;
+    }
+    private boolean validateProvince(){
+        String value = provinceAutoCompleteTextView.getText().toString();
+        if(value.isEmpty()){
+            provinceTextInputLayout.setError("استان نمیتواند خالی باشد");
+            return false;
+        }
+        if(!PROVINCES.contains(value)){
+            provinceTextInputLayout.setError("استان نامعتبر");
+            return false;
+        }
+        provinceTextInputLayout.setError(null);
+        provinceTextInputLayout.setErrorEnabled(false);
+        return true;
+    }
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    private boolean validateCity(){
+        String value = cityAutoCompleteTextView.getText().toString();
+        ArrayList<String> cities = new ArrayList<String>(Arrays.asList(Objects.requireNonNull(CITIES.getOrDefault(provinceAutoCompleteTextView.getText().toString(), new String[]{}))));
+        if(value.isEmpty()){
+            cityTextInputLayout.setError("شهر نمیتواند خالی باشد");
+            return false;
+        }
+        if(!cities.contains(value)){
+            cityTextInputLayout.setError("شهر نامعتبر");
+            return false;
+        }
+        cityTextInputLayout.setError(null);
+        cityTextInputLayout.setErrorEnabled(false);
+        return true;
+    }
+
 
 
 }

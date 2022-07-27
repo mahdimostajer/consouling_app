@@ -58,7 +58,7 @@ public class RegisterActivity extends AppCompatActivity {
         else{
             return;
         }
-        if (!validatePassword()) return;//todo: validate other fields
+        if (!validatePassword() || !validateUserName()) return;
         Intent intent = new Intent(getApplicationContext(), SecondRegisterActivity.class);
         intent.putExtra(RegisterActivity.USERNAME, getTextInputLayoutValue(usernameInput));
         intent.putExtra(RegisterActivity.PASSWORD, getTextInputLayoutValue(passwordInput));
@@ -76,7 +76,16 @@ public class RegisterActivity extends AppCompatActivity {
 
 
 
-
+    private boolean validateUserName(){
+        String username = getTextInputLayoutValue(usernameInput);
+        if(username.isEmpty()){
+            usernameInput.setError("نام کاربری نمیتواند خالی باشد");
+            return false;
+        }
+        usernameInput.setError(null);
+        usernameInput.setErrorEnabled(false);
+        return true;
+    }
     private boolean validatePassword() {
         String passwordVal = getTextInputLayoutValue(passwordInput);
         String confirmPasswordVal = getTextInputLayoutValue(confirmPasswordInput);
