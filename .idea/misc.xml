@@ -24,8 +24,9 @@
         <entry key="app/src/main/res/layout/activity_third_register.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_third_signup.xml" value="0.13805440266927083" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.1684814453125001" />
-        <entry key="app/src/main/res/layout/fragment_home_active.xml" value="0.1453125" />
+        <entry key="app/src/main/res/layout/fragment_home_active.xml" value="0.3507736206054688" />
         <entry key="app/src/main/res/layout/fragment_home_inactive.xml" value="0.168414306640625" />
+        <entry key="app/src/main/res/layout/fragment_shop.xml" value="0.303765869140625" />
       </map>
     </option>
   </component>

@@ -1,19 +1,29 @@
 package com.example.consoulingapp.ui.panel.ui.shop;
 
+import android.app.Application;
+
+import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.consoulingapp.models.ProfileResponse;
+
 public class ShopViewModel extends ViewModel {
 
-    private final MutableLiveData<String> mText;
+    public MutableLiveData<ProfileResponse> profileResponse;
+
+//    public ShopRepository shopRepository;
 
     public ShopViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is notifications fragment");
+//        super(application);
+//        this.shopRepository = new ShopRepository(application);
+//        this.profileResponse = shopRepository.profileResponse;
     }
 
-    public LiveData<String> getText() {
-        return mText;
+
+
+    public void getProfile(){
+//        shopRepository.getProfile();
     }
 }
