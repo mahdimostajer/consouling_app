@@ -11,6 +11,11 @@ import com.example.consoulingapp.models.LoginResp;
 import com.example.consoulingapp.models.User;
 import com.example.consoulingapp.network.LoginUtils;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.io.IOException;
+import java.lang.reflect.Type;
+import java.util.Map;
 
 public class LoginRepository {
     public MutableLiveData<LoginResp> user = new MutableLiveData<>();
@@ -48,8 +53,13 @@ public class LoginRepository {
                 return;
             }
             Gson gson = new Gson();
-            LoginResp resp = gson.fromJson(s, LoginResp.class);
-            user.setValue(resp);
+            try {
+                LoginResp resp = gson.fromJson(s, LoginResp.class);
+                user.setValue(resp);
+            }
+            catch (Exception e) {
+                Toast.makeText(application, "اطلاعات وارد شده صحیح نیست", Toast.LENGTH_LONG).show();
+            }
         }
     }
 }

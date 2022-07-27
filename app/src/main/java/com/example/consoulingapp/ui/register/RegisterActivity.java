@@ -11,6 +11,7 @@ import android.widget.RadioGroup;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.consoulingapp.R;
 import com.example.consoulingapp.databinding.ActivityRegisterBinding;
 import com.example.consoulingapp.ui.login.LoginActivity;
 import com.google.android.material.textfield.TextInputLayout;
@@ -46,13 +47,16 @@ public class RegisterActivity extends AppCompatActivity {
 
 
     public void callNextRegisterScreen(View view) {
-        int type = typeInput.getCheckedRadioButtonId();
+        int typeInt = typeInput.getCheckedRadioButtonId();
         String typeString;
-        if(type == 0){
+        if(typeInt == findViewById(R.id.student).getId()){
             typeString = "student";
         }
-        else{
+        else if(typeInt == findViewById(R.id.consultant).getId()){
             typeString = "consultant";
+        }
+        else{
+            return;
         }
         if (!validatePassword()) return;//todo: validate other fields
         Intent intent = new Intent(getApplicationContext(), SecondRegisterActivity.class);

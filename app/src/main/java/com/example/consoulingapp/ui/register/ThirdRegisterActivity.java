@@ -15,6 +15,10 @@ import com.example.consoulingapp.databinding.ActivityThirdRegisterBinding;
 import com.example.consoulingapp.ui.login.LoginActivity;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
+
 public class ThirdRegisterActivity extends AppCompatActivity {
 
 
@@ -69,7 +73,15 @@ public class ThirdRegisterActivity extends AppCompatActivity {
     }
 
     public void register(View view) {
-        date = datePicker.toString();
+        int year = datePicker.getYear();
+        int month = datePicker.getMonth();
+        int day = datePicker.getDayOfMonth();
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(year, month, day);
+
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        date = format.format(calendar.getTime());
         creditCard = getTextInputLayoutValue(creditCardInput);
         phone = getTextInputLayoutValue(phoneInput);
 

@@ -111,14 +111,17 @@ public class SecondRegisterActivity extends AppCompatActivity {
     public void callNextRegisterScreen(View view) {
         int genderInt = gender.getCheckedRadioButtonId();
         String genderString;
-        if(genderInt == 0){
+        if(genderInt == findViewById(R.id.male).getId()){
             genderString = "male";
         }
-        else if(genderInt == 1){
+        else if(genderInt == findViewById(R.id.female).getId()){
             genderString = "female";
         }
-        else{
+        else if(genderInt == findViewById(R.id.other).getId()){
             genderString = "other";
+        }
+        else{
+            return;
         }
         Intent intent = new Intent(getApplicationContext(), ThirdRegisterActivity.class);
         intent.putExtras(prevIntent.getExtras());

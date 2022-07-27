@@ -16,7 +16,7 @@ public class RegisterViewModel extends AndroidViewModel {
     public RegisterRepository registerRepository;
     public RegisterViewModel(@NonNull Application application) {
         super(application);
-        this.registerRepository = new RegisterRepository();
+        this.registerRepository = new RegisterRepository(application);
         this.registerResponse = registerRepository.registerResponse;
     }
     public void register(

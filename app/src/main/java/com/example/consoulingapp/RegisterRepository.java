@@ -1,6 +1,8 @@
 package com.example.consoulingapp;
 
+import android.app.Application;
 import android.os.AsyncTask;
+import android.widget.Toast;
 
 import androidx.lifecycle.MutableLiveData;
 
@@ -8,12 +10,17 @@ import com.example.consoulingapp.models.RegisterResponse;
 import com.example.consoulingapp.models.User;
 import com.example.consoulingapp.network.RegisterUtils;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.Map;
 
 public class RegisterRepository {
     public MutableLiveData<RegisterResponse> registerResponse = new MutableLiveData<>();
+    private final Application application;
 
-
-    public RegisterRepository() {
+    public RegisterRepository(Application application) {
+        this.application = application;
     }
 
     public void register(
@@ -71,10 +78,21 @@ public class RegisterRepository {
 
         @Override
         protected void onPostExecute(String s) {
+            if (s == null) {
+                Toast.makeText(application, "اطلاعات وارد شده صحیح نیست", Toast.LENGTH_LONG).show();
+                return;
+            }
             super.onPostExecute(s);
             Gson gson = new Gson();
-            RegisterResponse resp = gson.fromJson(s, RegisterResponse.class);
-            registerResponse.setValue(resp);
+            Type mapType = new TypeToken<Map<String, String>>(){}.getType();
+            Map<String, String> map = new Gson().fromJson(s, mapType);
+            if (map.size() == 1){
+                Toast.makeText(application,(map.values().toArray()[0]).toString(),Toast.LENGTH_LONG).show();
+            }
+            else{
+                RegisterResponse resp = gson.fromJson(s, RegisterResponse.class);
+                registerResponse.setValue(resp);
+            }
         }
     }
 }
