@@ -3,7 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/User/AndroidStudioProjects/ConsoulingApp/app/src/main/res/drawable/ic_vector.xml" value="0.188" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/ConsoulingApp/app/src/main/res/layout/activity_login.xml" value="0.2" />
         <entry key="..\:/Users/User/AndroidStudioProjects/ConsoulingApp/app/src/main/res/layout/activity_main.xml" value="0.2421875" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/ConsoulingApp/app/src/main/res/layout/activity_panel.xml" value="0.228125" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/ConsoulingApp/app/src/main/res/layout/activity_register.xml" value="0.2421875" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/ConsoulingApp/app/src/main/res/layout/fragment_history.xml" value="0.2421875" />
         <entry key="..\:/Users/User/AndroidStudioProjects/ConsoulingApp/app/src/main/res/layout/fragment_on_board.xml" value="0.2421875" />
         <entry key="app/src/main/res/drawable/circle_black_border.xml" value="0.1645" />
         <entry key="app/src/main/res/drawable/ic_screen_shot_1400_02_04_at_15_17_18.xml" value="0.1645" />
@@ -17,6 +22,7 @@
         <entry key="app/src/main/res/layout/activity_signup.xml" value="0.20667317708333333" />
         <entry key="app/src/main/res/layout/activity_third_register.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_third_signup.xml" value="0.13805440266927083" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/ConsoulingApp/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2421875" />
       </map>
     </option>
   </component>
