@@ -92,7 +92,7 @@
 
 
                 <RadioButton
-                    android:id="@+id/teacher"
+                    android:id="@+id/consultant"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="مشاور"

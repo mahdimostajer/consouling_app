@@ -46,15 +46,23 @@ public class RegisterActivity extends AppCompatActivity {
 
 
     public void callNextRegisterScreen(View view) {
-
+        int type = typeInput.getCheckedRadioButtonId();
+        String typeString;
+        if(type == 0){
+            typeString = "student";
+        }
+        else{
+            typeString = "consultant";
+        }
         if (!validatePassword()) return;//todo: validate other fields
         Intent intent = new Intent(getApplicationContext(), SecondRegisterActivity.class);
         intent.putExtra(RegisterActivity.USERNAME, getTextInputLayoutValue(usernameInput));
         intent.putExtra(RegisterActivity.PASSWORD, getTextInputLayoutValue(passwordInput));
-        intent.putExtra(RegisterActivity.TYPE, typeInput.getCheckedRadioButtonId());
+        intent.putExtra(RegisterActivity.TYPE, typeString);
         startActivity(intent);
 
     }
+
 
 
     public void callLoginFromRegister(View view) {

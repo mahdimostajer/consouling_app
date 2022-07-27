@@ -2,23 +2,15 @@ package com.example.consoulingapp.ui.register;
 
 import static com.example.consoulingapp.Utilities.getTextInputLayoutValue;
 
-import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Pair;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.ImageView;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.consoulingapp.databinding.ActivityRegisterBinding;
 import com.example.consoulingapp.databinding.ActivityThirdRegisterBinding;
 import com.example.consoulingapp.ui.login.LoginActivity;
 import com.google.android.material.textfield.TextInputLayout;

@@ -73,9 +73,8 @@ public class RegisterRepository {
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
             Gson gson = new Gson();
-//            Resp resp = gson.fromJson(s, Resp.class);
-            RegisterResponse newRegisterResponse = new RegisterResponse("ghjtffyj", "123","akbari","male","armin","delgosar","12324124124","2022-07-22");
-            registerResponse.setValue(newRegisterResponse);
+            RegisterResponse resp = gson.fromJson(s, RegisterResponse.class);
+            registerResponse.setValue(resp);
         }
     }
 }
