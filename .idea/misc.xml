@@ -12,16 +12,20 @@
         <entry key="app/src/main/res/drawable/ic_screen_shot_1400_02_04_at_15_17_18.xml" value="0.1645" />
         <entry key="app/src/main/res/drawable/ic_test.xml" value="0.1645" />
         <entry key="app/src/main/res/drawable/role.xml" value="0.1645" />
+        <entry key="app/src/main/res/drawable/searching_data.xml" value="0.155" />
+        <entry key="app/src/main/res/layout-v28/fragment_home.xml" value="0.14583333333333334" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.14114583333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.15520833333333334" />
-        <entry key="app/src/main/res/layout/activity_panel.xml" value="0.14583333333333334" />
+        <entry key="app/src/main/res/layout/activity_panel.xml" value="0.20506591796875" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.221956974085703" />
         <entry key="app/src/main/res/layout/activity_second_register.xml" value="0.40272827148437507" />
         <entry key="app/src/main/res/layout/activity_second_signup.xml" value="0.15520833333333334" />
         <entry key="app/src/main/res/layout/activity_signup.xml" value="0.20667317708333333" />
         <entry key="app/src/main/res/layout/activity_third_register.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_third_signup.xml" value="0.13805440266927083" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.14583333333333334" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.1684814453125001" />
+        <entry key="app/src/main/res/layout/fragment_home_active.xml" value="0.1453125" />
+        <entry key="app/src/main/res/layout/fragment_home_inactive.xml" value="0.168414306640625" />
       </map>
     </option>
   </component>

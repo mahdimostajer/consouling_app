@@ -9,6 +9,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.example.consoulingapp.models.LoginResp;
 import com.example.consoulingapp.models.User;
+import com.example.consoulingapp.network.Client;
 import com.example.consoulingapp.network.LoginUtils;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -55,6 +56,7 @@ public class LoginRepository {
             Gson gson = new Gson();
             try {
                 LoginResp resp = gson.fromJson(s, LoginResp.class);
+                Client.getInstance().setLoginResp(resp);
                 user.setValue(resp);
             }
             catch (Exception e) {
