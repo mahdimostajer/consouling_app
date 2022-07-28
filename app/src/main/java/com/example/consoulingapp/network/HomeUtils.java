@@ -45,4 +45,26 @@ public class HomeUtils {
         }
         return null;
     }
+    public String getDashboard(){
+        HttpUrl.Builder urlBuilder = HttpUrl.parse(Client.BASE_URL + "/account/student/dashboard/").newBuilder();
+
+        String url = urlBuilder.build().toString();
+
+
+        Request request = new Request.Builder()
+                .url(url)
+                .headers(Client.getInstance().headers)
+                .get()
+                .build();
+
+        try {
+            Response response = client.newCall(request).execute();
+            String res = response.body().string();
+            Log.d("response",res);
+            return res;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

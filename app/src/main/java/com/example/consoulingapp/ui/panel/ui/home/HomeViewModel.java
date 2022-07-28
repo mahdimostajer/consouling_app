@@ -12,6 +12,7 @@ import com.example.consoulingapp.models.ProfileResponse;
 public class HomeViewModel extends AndroidViewModel {
 
     public MutableLiveData<ProfileResponse> profileResponse;
+    public MutableLiveData<>
 
     public HomeRepository homeRepository;
 
