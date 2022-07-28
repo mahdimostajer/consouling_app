@@ -24,7 +24,7 @@
         tools:layout="@layout/fragment_shop" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.consoulingapp.ui.ProfileFragment"
+        android:name="com.example.consoulingapp.ui.panel.ui.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
 </navigation>
