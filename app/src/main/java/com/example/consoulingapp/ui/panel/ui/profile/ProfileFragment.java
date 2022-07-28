@@ -21,7 +21,12 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.consoulingapp.databinding.FragmentProfileBinding;
 import com.example.consoulingapp.models.ProfileResponse;
 import com.example.consoulingapp.models.RegisterResponse;
+import com.github.eloyzone.jalalicalendar.DateConverter;
+import com.github.eloyzone.jalalicalendar.JalaliDate;
+import com.github.eloyzone.jalalicalendar.JalaliDateFormatter;
+import com.github.eloyzone.jalalicalendar.MonthPersian;
 
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -98,7 +103,7 @@ public class ProfileFragment extends Fragment {
         binding.firstName.getEditText().setText(account.first_name);
         binding.lastName.getEditText().setText(account.last_name);
         binding.creditCardNo.getEditText().setText(account.credit_card_no);
-        binding.birthDate.getEditText().setText(account.birth_date);
+        binding.birthDate.getEditText().setText(convertToJalali(account.birth_date));
 
 
         binding.schoolName.getEditText().setText(profile.school_name);
@@ -178,6 +183,13 @@ public class ProfileFragment extends Fragment {
                 binding.parentPhoneNumber.getEditText().getText().toString()
         );
     }
+    public String convertToJalali(String date){
+
+        DateConverter dateConverter = new DateConverter();
+        String[] ymd = date.split("-");
+        return dateConverter.gregorianToJalali(Integer.parseInt(ymd[0]), Integer.parseInt(ymd[1]), Integer.parseInt(ymd[2])).toString();
+    }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();
