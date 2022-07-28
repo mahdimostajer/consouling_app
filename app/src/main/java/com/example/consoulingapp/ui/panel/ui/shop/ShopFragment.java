@@ -58,7 +58,7 @@ public class ShopFragment extends Fragment {
             }
         });
         binding.payButton.setOnClickListener(view -> {
-            Toast.makeText(getActivity(), String.valueOf(shopViewModel.selectedId.getValue()), Toast.LENGTH_LONG).show();
+            shopViewModel.buy(shopViewModel.selectedId.getValue());
 
         });
         return root;
