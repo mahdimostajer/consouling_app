@@ -3,6 +3,7 @@ package com.example.consoulingapp.ui.panel.ui.shop;
 import android.app.Application;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -13,14 +14,15 @@ import com.example.consoulingapp.models.ProfileResponse;
 
 import java.util.List;
 
-public class ShopViewModel extends ViewModel {
+public class ShopViewModel extends AndroidViewModel {
 
     public ShopRepository shopRepository;
     public MutableLiveData<List<Course>> courses = new MutableLiveData<>();
     public MutableLiveData<Integer> selectedId = new MutableLiveData<>();
 
-    public ShopViewModel() {
-        this.shopRepository = new ShopRepository();
+    public ShopViewModel(Application application) {
+        super(application);
+        this.shopRepository = new ShopRepository(application);
         this.courses = shopRepository.courses;
     }
 

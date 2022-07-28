@@ -44,9 +44,9 @@ public class ShopUtils {
     }
 
     public String buy(int id) {
-        HttpUrl.Builder urlBuilder = HttpUrl.parse(Client.BASE_URL + "/consultation/courses/" + id + "/purchase/").newBuilder();
+        HttpUrl.Builder urlBuilder = HttpUrl.parse(Client.BASE_URL + "/consultation/courses/" + String.valueOf(id) + "/purchase/").newBuilder();
         String url = urlBuilder.build().toString();
-        RequestBody requestBody = new FormBody.Builder().build();
+        RequestBody requestBody = RequestBody.create(null, new byte[0]);
 
         Request request = new Request.Builder()
                 .url(url)
@@ -57,13 +57,10 @@ public class ShopUtils {
 
         try {
             Response response = client.newCall(request).execute();
-            if (response.code() == 401) {
-                Log.d("not authorized", "gholam");
-                return null;
+            if (response.code() == 201) {
+                return "success";
             }
-            String res = response.body().string();
-            Log.d("response", res);
-            return res;
+            return null;
         } catch (IOException e) {
             e.printStackTrace();
         }

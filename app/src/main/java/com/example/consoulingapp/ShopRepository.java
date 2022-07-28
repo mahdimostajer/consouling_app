@@ -1,10 +1,12 @@
 package com.example.consoulingapp;
 
+import android.app.Application;
 import android.os.AsyncTask;
 import android.widget.Toast;
 
 import androidx.lifecycle.MutableLiveData;
 
+import com.example.consoulingapp.models.BuyResp;
 import com.example.consoulingapp.models.Course;
 import com.example.consoulingapp.models.LoginResp;
 import com.example.consoulingapp.models.ShopResp;
@@ -17,12 +19,14 @@ import java.util.List;
 
 public class ShopRepository {
     public MutableLiveData<List<Course>> courses = new MutableLiveData<>();
+    public Application application;
 
-    public ShopRepository() {
+    public ShopRepository(Application application) {
+        this.application = application;
     }
 
     public void buy(int id){
-
+        new buyCourse().execute(id);
     }
 
     public void getCourses() {
@@ -67,6 +71,12 @@ public class ShopRepository {
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
+            if(s == "success"){
+                Toast.makeText(application, "خرید با موفقیت انجام شد", Toast.LENGTH_LONG).show();
+            }else {
+                Toast.makeText(application, "خرید انجام نشد!", Toast.LENGTH_LONG).show();
+
+            }
         }
     }
 }
