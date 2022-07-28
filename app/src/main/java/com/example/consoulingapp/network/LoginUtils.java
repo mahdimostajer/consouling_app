@@ -14,7 +14,6 @@ import okhttp3.Response;
 public class LoginUtils {
     private OkHttpClient client;
 
-    // TODO: headers
 
     public LoginUtils() {
         client = Client.getInstance().client;
@@ -23,7 +22,6 @@ public class LoginUtils {
     public String authenticate(String username, String password){
         HttpUrl.Builder urlBuilder = HttpUrl.parse(Client.BASE_URL + "/core/login/").newBuilder();
         RequestBody requestBody = new FormBody.Builder().add("username",username).add("password",password).build();
-        // TODO: set params
         String url = urlBuilder.build().toString();
         Request request = new Request.Builder()
                 .url(url)

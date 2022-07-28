@@ -1,6 +1,11 @@
 package com.example.consoulingapp.ui.panel.ui.shop;
 
 import android.graphics.Color;
+import static android.content.Context.MODE_PRIVATE;
+import static com.example.consoulingapp.ui.login.LoginActivity.ACCESS_TOKEN;
+import static com.example.consoulingapp.ui.login.LoginActivity.sharedPrefFile;
+
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,25 +17,39 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.consoulingapp.databinding.FragmentShopBinding;
 import com.google.android.material.card.MaterialCardView;
+import com.example.consoulingapp.models.Course;
 
 public class ShopFragment extends Fragment {
 
     private FragmentShopBinding binding;
     @Nullable
     private MaterialCardView selectedPackage;
+    private SharedPreferences mPreferences;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-//        ShopViewModel shopViewModel =
-//                new ViewModelProvider(this).get(ShopViewModel.class);
+        ShopViewModel shopViewModel =
+                new ViewModelProvider(this).get(ShopViewModel.class);
 
         binding = FragmentShopBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         setOnCLickListeners();
+
+
+        mPreferences = requireContext().getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
+        String token = mPreferences.getString(ACCESS_TOKEN, null);
+        shopViewModel.getCourses(token);
+        shopViewModel.courses.observe(requireActivity(), new Observer<Course>() {
+            @Override
+            public void onChanged(Course course) {
+
+            }
+        });
         return root;
     }
     private void setOnCLickListeners() {

@@ -20,7 +20,8 @@ public class HomeViewModel extends AndroidViewModel {
         this.homeRepository = new HomeRepository(application);
         this.profileResponse = homeRepository.profileResponse;
     }
-    public void getProfile(){
+    public void getProfile() {
         homeRepository.getProfile();
     }
+
 }

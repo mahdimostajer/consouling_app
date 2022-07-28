@@ -7,6 +7,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.consoulingapp.models.Course;
 import com.example.consoulingapp.models.ProfileResponse;
 
 public class ShopViewModel extends ViewModel {
@@ -22,8 +23,9 @@ public class ShopViewModel extends ViewModel {
     }
 
 
+    public MutableLiveData<Course> courses;
 
-    public void getProfile(){
-//        shopRepository.getProfile();
+
+    public void getCourses(String token) {
     }
 }

@@ -1,5 +1,10 @@
 package com.example.consoulingapp.ui.panel.ui.home;
 
+import static android.content.Context.MODE_PRIVATE;
+import static com.example.consoulingapp.ui.login.LoginActivity.ACCESS_TOKEN;
+import static com.example.consoulingapp.ui.login.LoginActivity.sharedPrefFile;
+
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +21,7 @@ import com.example.consoulingapp.databinding.FragmentHomeBinding;
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
+    private SharedPreferences mPreferences;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -25,7 +31,6 @@ public class HomeFragment extends Fragment {
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
 
         homeViewModel.profileResponse.observe(getViewLifecycleOwner(),  profile -> {
             if (profile != null) {
