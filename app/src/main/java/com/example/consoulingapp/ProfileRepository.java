@@ -19,7 +19,7 @@ public class ProfileRepository {
     public MutableLiveData<ProfileResponse> profileResponse = new MutableLiveData<>();
     public Application application;
 
-    public ProfileRepository() {
+    public ProfileRepository(Application application) {
         this.application = application;
     }
 
@@ -34,9 +34,7 @@ public class ProfileRepository {
             String latest_grade,
             String description,
             String parent_career,
-            String parent_phone_number,
-            String ranked_in_country,
-            String ranked_in_area
+            String parent_phone_number
     ) {
         new fetchUser(profileResponse, application).execute(
                 grade,
@@ -49,9 +47,7 @@ public class ProfileRepository {
                 latest_grade,
                 description,
                 parent_career,
-                parent_phone_number,
-                ranked_in_country,
-                ranked_in_area
+                parent_phone_number
         );
     }
 
@@ -79,9 +75,7 @@ public class ProfileRepository {
                     strings[7],
                     strings[8],
                     strings[9],
-                    strings[10],
-                    strings[11],
-                    strings[12]
+                    strings[10]
             );
         }
 
@@ -95,7 +89,9 @@ public class ProfileRepository {
             Gson gson = new Gson();
             try {
                 ProfileResponse resp = gson.fromJson(s, ProfileResponse.class);
+                ProfileResponse.profileResponse = resp;
                 profileResponse.setValue(resp);
+                Toast.makeText(application, "اطلاعات با موفقیت تغییر یافت", Toast.LENGTH_LONG).show();
             }
             catch (Exception e) {
                 Toast.makeText(application, "اطلاعات وارد شده صحیح نیست", Toast.LENGTH_LONG).show();

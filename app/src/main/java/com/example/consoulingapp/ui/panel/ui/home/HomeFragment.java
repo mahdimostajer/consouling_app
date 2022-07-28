@@ -47,7 +47,7 @@ public class HomeFragment extends Fragment {
                 fragmentTransaction.commit();
             }
         });
-
+        if(homeViewModel.profileResponse.getValue() == null)
         homeViewModel.getProfile();
 
 

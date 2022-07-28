@@ -1,38 +1,35 @@
 package com.example.consoulingapp.ui.panel.ui.profile;
 
-import android.graphics.Color;
 import static android.content.Context.MODE_PRIVATE;
 import static com.example.consoulingapp.ui.login.LoginActivity.ACCESS_TOKEN;
 import static com.example.consoulingapp.ui.login.LoginActivity.sharedPrefFile;
 
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.RadioGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.consoulingapp.ProfileRepository;
-import com.example.consoulingapp.R;
 import com.example.consoulingapp.databinding.FragmentProfileBinding;
-import com.example.consoulingapp.databinding.FragmentShopBinding;
 import com.example.consoulingapp.models.ProfileResponse;
 import com.example.consoulingapp.models.RegisterResponse;
-import com.example.consoulingapp.ui.register.RegisterActivity;
-import com.google.android.material.card.MaterialCardView;
-import com.example.consoulingapp.models.Course;
-import com.google.android.material.textfield.TextInputLayout;
+import com.github.eloyzone.jalalicalendar.DateConverter;
+import com.github.eloyzone.jalalicalendar.JalaliDate;
+import com.github.eloyzone.jalalicalendar.JalaliDateFormatter;
+import com.github.eloyzone.jalalicalendar.MonthPersian;
 
-import okhttp3.FormBody;
-import okhttp3.RequestBody;
+import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class ProfileFragment extends Fragment {
 
@@ -41,7 +38,10 @@ public class ProfileFragment extends Fragment {
     private SharedPreferences mPreferences;
     ProfileResponse profile;
     ProfileViewModel profileViewModel;
+    Map<Integer, String> ids;
+    Map<String, Integer> swappedIds;
 
+    @RequiresApi(api = Build.VERSION_CODES.R)
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         profileViewModel =
@@ -49,9 +49,10 @@ public class ProfileFragment extends Fragment {
 
         binding = FragmentProfileBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
+        setIdMaps();
         setFields();
         binding.changeDetailsButton.setOnClickListener(view -> changeDetails());
+
 
         mPreferences = requireContext().getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
         String token = mPreferences.getString(ACCESS_TOKEN, null);
@@ -60,49 +61,135 @@ public class ProfileFragment extends Fragment {
         });
         return root;
     }
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    private void setIdMaps() {
+        ids = new HashMap<Integer, String>() {{
+            put(binding.underGraduated.getId(), "under_graduated");
+            put(binding.graduated.getId(), "graduated");
+            put(binding.g10.getId(), "10");
+            put(binding.g11.getId(), "11");
+            put(binding.g12.getId(), "12");
+            put(binding.gradeOther.getId(), "other_grade");
+            put(binding.experimental.getId(), "experimental");
+            put(binding.mathmatics.getId(), "mathmatics");
+            put(binding.humanities.getId(), "humanities");
+            put(binding.fieldOther.getId(), "other_field");
+            put(binding.sampad.getId(), "sampad");
+            put(binding.numouneh.getId(), "numouneh");
+            put(binding.dolati.getId(), "dolati");
+            put(binding.gheireDolati.getId(), "gheire_dolati");
+            put(binding.schoolTypeOther.getId(), "other_school_type");
+            put(binding.ghalamchi.getId(), "ghalamchi");
+            put(binding.gaj.getId(), "gaj");
+            put(binding.sanjesh.getId(), "sanjesh");
+            put(binding.gozine2.getId(), "gozine2");
+            put(binding.extraCurricularExamOther.getId(), "other_exam");
+
+        }};
+        swappedIds = ids.entrySet().stream().collect(Collectors.toMap(Map.Entry::getValue, Map.Entry::getKey));
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
     private void setFields(){
         profile = ProfileResponse.profileResponse;
         RegisterResponse account = profile.account;
 
-        ((TextInputLayout)getView().findViewById(R.id.phone_number)).getEditText().setText(account.phone_number);
-        ((TextInputLayout)getView().findViewById(R.id.province)).getEditText().setText(account.province);
-        ((TextInputLayout)getView().findViewById(R.id.gender)).getEditText().setText(account.gender);
-        ((TextInputLayout)getView().findViewById(R.id.first_name)).getEditText().setText(account.first_name);
-        ((TextInputLayout)getView().findViewById(R.id.last_name)).getEditText().setText(account.last_name);
-        ((TextInputLayout)getView().findViewById(R.id.credit_card_no)).getEditText().setText(account.credit_card_no);
-        ((TextInputLayout)getView().findViewById(R.id.birth_date)).getEditText().setText(account.birth_date);
+        setRadioButtons();
 
-        ((TextInputLayout)getView().findViewById(R.id.grade)).getEditText().setText(profile.grade);
-        ((TextInputLayout)getView().findViewById(R.id.state)).getEditText().setText(profile.state);
-        ((TextInputLayout)getView().findViewById(R.id.field)).getEditText().setText(profile.field);
-        ((TextInputLayout)getView().findViewById(R.id.school_name)).getEditText().setText(profile.school_name);
-        ((TextInputLayout)getView().findViewById(R.id.school_type)).getEditText().setText(profile.school_type);
-        ((TextInputLayout)getView().findViewById(R.id.average_level)).getEditText().setText(profile.average_level);
-        ((TextInputLayout)getView().findViewById(R.id.extra_curricular_exam)).getEditText().setText(profile.extra_curricular_exam);
-        ((TextInputLayout)getView().findViewById(R.id.latest_grade)).getEditText().setText(profile.latest_grade);
-        ((TextInputLayout)getView().findViewById(R.id.description)).getEditText().setText(profile.description);
-        ((TextInputLayout)getView().findViewById(R.id.parent_career)).getEditText().setText(profile.parent_career);
-        ((TextInputLayout)getView().findViewById(R.id.parent_phone_number)).getEditText().setText(profile.parent_phone_number);
-        ((TextInputLayout)getView().findViewById(R.id.ranked_in_country)).getEditText().setText(profile.ranked_in_country);
-        ((TextInputLayout)getView().findViewById(R.id.ranked_in_area)).getEditText().setText(profile.ranked_in_area);
+        binding.phoneNumber.getEditText().setText(account.phone_number);
+        binding.province.getEditText().setText(account.province);
+        binding.gender.getEditText().setText(account.gender);
+        binding.firstName.getEditText().setText(account.first_name);
+        binding.lastName.getEditText().setText(account.last_name);
+        binding.creditCardNo.getEditText().setText(account.credit_card_no);
+        binding.birthDate.getEditText().setText(convertToJalali(account.birth_date));
+
+
+        binding.schoolName.getEditText().setText(profile.school_name);
+        binding.averageLevel.getEditText().setText(profile.average_level);
+        binding.latestGrade.getEditText().setText(profile.latest_grade);
+        binding.description.getEditText().setText(profile.description);
+        binding.parentCareer.getEditText().setText(profile.parent_career);
+        binding.parentPhoneNumber.getEditText().setText(profile.parent_phone_number);
     }
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    private void setRadioButtons() {
+        RadioGroup grade = binding.grade;
+        RadioGroup state = binding.state;
+        RadioGroup field = binding.field;
+        RadioGroup school_type = binding.schoolType;
+        RadioGroup extra_curricular_exam = binding.extraCurricularExam;
+
+        Integer stateCheck = swappedIds.getOrDefault(profile.state,null);
+        if (stateCheck != null) {
+            state.check(stateCheck);
+        }
+
+        Integer gradeCheck = swappedIds.getOrDefault(profile.grade,null);
+        if (gradeCheck != null) {
+            grade.check(gradeCheck);
+        }
+
+        Integer fieldCheck = swappedIds.getOrDefault(profile.field,null);
+        if (fieldCheck != null) {
+            field.check(fieldCheck);
+        }
+
+        Integer school_typeCheck = swappedIds.getOrDefault(profile.school_type,null);
+        if (school_typeCheck != null) {
+            school_type.check(school_typeCheck);
+        }
+
+        Integer extra_curricular_examCheck = swappedIds.getOrDefault(profile.extra_curricular_exam,null);
+        if (extra_curricular_examCheck != null) {
+            extra_curricular_exam.check(extra_curricular_examCheck);
+        }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.R)
     private void changeDetails(){
+        RadioGroup grade = binding.grade;
+        RadioGroup state = binding.state;
+        RadioGroup field = binding.field;
+        RadioGroup school_type = binding.schoolType;
+        RadioGroup extra_curricular_exam = binding.extraCurricularExam;
+
+        String grade_string;
+        String state_string;
+        String field_string;
+        String school_type_string;
+        String extra_curricular_exam_string;
+
+        state_string = ids.get(state.getCheckedRadioButtonId());
+        grade_string = ids.get(grade.getCheckedRadioButtonId());
+        field_string = ids.get(field.getCheckedRadioButtonId());
+        school_type_string = ids.get(school_type.getCheckedRadioButtonId());
+        extra_curricular_exam_string = ids.get(extra_curricular_exam.getCheckedRadioButtonId());
+
+
         profileViewModel.changeDetails(
-                ((TextInputLayout)getView().findViewById(R.id.grade)).getEditText().getText().toString(),
-                ((TextInputLayout)getView().findViewById(R.id.state)).getEditText().getText().toString(),
-                ((TextInputLayout)getView().findViewById(R.id.field)).getEditText().getText().toString(),
-                ((TextInputLayout)getView().findViewById(R.id.school_name)).getEditText().getText().toString(),
-                ((TextInputLayout)getView().findViewById(R.id.school_type)).getEditText().getText().toString(),
-                ((TextInputLayout)getView().findViewById(R.id.average_level)).getEditText().getText().toString(),
-                ((TextInputLayout)getView().findViewById(R.id.extra_curricular_exam)).getEditText().getText().toString(),
-                ((TextInputLayout)getView().findViewById(R.id.latest_grade)).getEditText().getText().toString(),
-                ((TextInputLayout)getView().findViewById(R.id.description)).getEditText().getText().toString(),
-                ((TextInputLayout)getView().findViewById(R.id.parent_career)).getEditText().getText().toString(),
-                ((TextInputLayout)getView().findViewById(R.id.parent_phone_number)).getEditText().getText().toString(),
-                ((TextInputLayout)getView().findViewById(R.id.ranked_in_country)).getEditText().getText().toString(),
-                ((TextInputLayout)getView().findViewById(R.id.ranked_in_area)).getEditText().getText().toString()
+                grade_string,
+                state_string,
+                field_string,
+                binding.schoolName.getEditText().getText().toString(),
+                school_type_string,
+                binding.averageLevel.getEditText().getText().toString(),
+                extra_curricular_exam_string,
+                binding.latestGrade.getEditText().getText().toString(),
+                binding.description.getEditText().getText().toString(),
+                binding.parentCareer.getEditText().getText().toString(),
+                binding.parentPhoneNumber.getEditText().getText().toString()
         );
     }
+    public String convertToJalali(String date){
+
+        DateConverter dateConverter = new DateConverter();
+        String[] ymd = date.split("-");
+        return dateConverter.gregorianToJalali(Integer.parseInt(ymd[0]), Integer.parseInt(ymd[1]), Integer.parseInt(ymd[2])).toString();
+    }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();

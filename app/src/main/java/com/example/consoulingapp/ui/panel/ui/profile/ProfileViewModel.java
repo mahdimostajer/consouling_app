@@ -3,6 +3,7 @@ package com.example.consoulingapp.ui.panel.ui.profile;
 import android.app.Application;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -13,14 +14,15 @@ import com.example.consoulingapp.models.ProfileResponse;
 
 import okhttp3.RequestBody;
 
-public class ProfileViewModel extends ViewModel {
+public class ProfileViewModel extends AndroidViewModel {
 
     public MutableLiveData<ProfileResponse> profileResponse;
 
     public ProfileRepository profileRepository;
 
-    public ProfileViewModel() {
-        this.profileRepository = new ProfileRepository();
+    public ProfileViewModel(@NonNull Application application) {
+        super(application);
+        this.profileRepository = new ProfileRepository(application);
         this.profileResponse = profileRepository.profileResponse;
     }
 
@@ -35,9 +37,7 @@ public class ProfileViewModel extends ViewModel {
             String latest_grade,
             String description,
             String parent_career,
-            String parent_phone_number,
-            String ranked_in_country,
-            String ranked_in_area
+            String parent_phone_number
     ){
         profileRepository.changeDetails(
                 grade,
@@ -50,9 +50,7 @@ public class ProfileViewModel extends ViewModel {
                 latest_grade,
                 description,
                 parent_career,
-                parent_phone_number,
-                ranked_in_country,
-                ranked_in_area
+                parent_phone_number
         );
     }
 
