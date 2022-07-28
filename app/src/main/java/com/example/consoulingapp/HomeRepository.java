@@ -17,6 +17,7 @@ import java.util.Map;
 
 public class HomeRepository {
     public MutableLiveData<ProfileResponse> profileResponse = new MutableLiveData<>();
+    public MutableLiveData<DashboardResponse> dashboardResponse = new MutableLiveData<>();
     private final Application application;
 
     public HomeRepository(Application application) {
@@ -27,7 +28,7 @@ public class HomeRepository {
         new getProfile(profileResponse).execute();
     }
     public void getDashboard() {
-        new getDashboard(DashboardResponse).execute();
+        new getDashboard(dashboardResponse).execute();
     }
 
     public class getProfile extends AsyncTask<String, Void, String> {
@@ -95,13 +96,9 @@ public class HomeRepository {
             }.getType();
             try {
                 Map<String, Object> map = new Gson().fromJson(s, mapType);
-                if (map.size() == 1) {
-                    Toast.makeText(application, (map.values().toArray()[0]).toString(), Toast.LENGTH_LONG).show();
-                } else {
-                    DashboardResponse resp = gson.fromJson(s, DashboardResponse.class);
+                DashboardResponse resp = gson.fromJson(s, DashboardResponse.class);
 //                    DashboardResponse.dashboardResponse = resp;
-                    dashboardResponse.setValue(resp);
-                }
+                dashboardResponse.setValue(resp);
             } catch (Exception e) {
                 e.printStackTrace();
                 Toast.makeText(application, "خطایی رخ داده است", Toast.LENGTH_LONG).show();

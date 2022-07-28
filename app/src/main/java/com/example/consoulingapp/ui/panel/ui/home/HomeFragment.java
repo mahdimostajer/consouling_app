@@ -1,9 +1,5 @@
 package com.example.consoulingapp.ui.panel.ui.home;
 
-import static android.content.Context.MODE_PRIVATE;
-import static com.example.consoulingapp.ui.login.LoginActivity.ACCESS_TOKEN;
-import static com.example.consoulingapp.ui.login.LoginActivity.sharedPrefFile;
-
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -32,24 +28,36 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        homeViewModel.profileResponse.observe(getViewLifecycleOwner(),  profile -> {
-            if (profile != null) {
+        binding.swiperefresh.setOnRefreshListener(
+                () -> {
+                    homeViewModel.getDashboard();
+                    homeViewModel.getProfile();
+                    binding.swiperefresh.setRefreshing(false);
+                }
+        );
+
+        homeViewModel.dashboardResponse.observe(getViewLifecycleOwner(),  dashboardResponse -> {
+            if (dashboardResponse != null) {
                 FragmentManager fm = getParentFragmentManager();
+                Fragment fragment = fm.findFragmentByTag("home_fragment");
+                if(fragment != null)
+                    fm.beginTransaction().remove(fragment).commit();
                 FragmentTransaction fragmentTransaction = fm.beginTransaction();
                 Fragment fm2;
-                if(profile.has_contract){
-                    fm2 = new HomeActiveFragment();
-                }else{
+                if(dashboardResponse.active_course == null){
                     fm2 = new HomeInactiveFragment();
+                }else{
+                    fm2 = new HomeActiveFragment();
                 }
 
                 fragmentTransaction.add(binding.fragment1.getId(), fm2, "home_fragment");
                 fragmentTransaction.commit();
             }
         });
+        if(homeViewModel.dashboardResponse.getValue() == null)
+            homeViewModel.getDashboard();
         if(homeViewModel.profileResponse.getValue() == null)
-        homeViewModel.getProfile();
-
+            homeViewModel.getProfile();
 
         return root;
     }

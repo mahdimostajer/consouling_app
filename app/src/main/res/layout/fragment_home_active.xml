@@ -22,6 +22,7 @@
         app:layout_constraintBottom_toTopOf="@+id/home_card_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/home_card_view"
         android:layout_width="match_parent"
@@ -33,6 +34,7 @@
         app:cardElevation="20dp"
         app:contentPadding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -60,20 +62,46 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <TextView
-                        android:id="@+id/home_remaining_days_text_view"
+                    <LinearLayout
+                        android:id="@+id/home_remaining_days_ly"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
-                        android:text="۳۷/۹۰"
-                        android:textAllCaps="true"
-                        android:textColor="@color/black"
-                        android:textSize="24sp"
-                        android:transitionName="transition_title_text"
-
                         app:layout_constraintBottom_toTopOf="@+id/remaining_text"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/home_remaining_days_text_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:text="-"
+                            android:textColor="@color/teal_700"
+                            android:textSize="24sp"
+                            android:transitionName="transition_title_text"
+
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:text="/"
+                            android:textColor="@color/black"
+                            android:textSize="24sp"
+                            android:transitionName="transition_title_text" />
+
+                        <TextView
+                            android:id="@+id/home_total_days_text_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:text="-"
+                            android:textColor="@color/black"
+                            android:textSize="24sp"
+                            android:transitionName="transition_title_text" />
+
+                    </LinearLayout>
 
                     <TextView
                         android:id="@+id/days_text"
@@ -88,7 +116,7 @@
 
                         android:transitionName="transition_title_text"
                         app:layout_constraintBottom_toTopOf="@+id/remaining_text"
-                        app:layout_constraintEnd_toStartOf="@+id/home_remaining_days_text_view"
+                        app:layout_constraintEnd_toStartOf="@+id/home_remaining_days_ly"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -143,7 +171,7 @@
                         android:layout_height="wrap_content"
 
                         android:paddingRight="4sp"
-                        android:text="۱۳ شهریور ۱۴۰۱"
+                        android:text="-"
                         android:textAllCaps="true"
                         android:textColor="@color/black"
                         android:textSize="16sp"
@@ -175,7 +203,7 @@
                         android:layout_height="wrap_content"
 
                         android:paddingRight="4sp"
-                        android:text="۱۳ خرداد ۱۴۰۱"
+                        android:text="-"
                         android:textAllCaps="true"
                         android:textColor="@color/black"
                         android:textSize="16sp"
@@ -220,7 +248,7 @@
                         android:layout_height="wrap_content"
 
                         android:padding="8sp"
-                        android:text="دکتر محمد جواد جوادی"
+                        android:text="-"
                         android:textAllCaps="true"
                         android:textColor="@color/black"
                         android:textSize="12sp"
@@ -235,39 +263,10 @@
                     android:layout_width="60sp"
                     android:layout_height="60sp"
                     android:padding="3sp"
-                    android:src="@drawable/student" />
+                    android:src="@drawable/teacher" />
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/study_time_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#6AF3FF"
-        android:onClick="goToStudyTimeTab"
-        android:paddingHorizontal="60sp"
-        android:text="ثبت ساعات مطالعه"
-        android:textColor="@color/black"
-        android:transitionName="transition_next_btn"
-        app:layout_constraintBottom_toTopOf="@+id/extend_term_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/home_card_view" />
 
-
-    <Button
-        android:id="@+id/extend_term_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#00000000"
-        android:elevation="5dp"
-        android:onClick="goToExtendTermTab"
-        android:text="تمدید دوره"
-        android:textColor="@color/gray"
-        android:transitionName="transition_login_btn"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/home_card_view" />
 </androidx.constraintlayout.widget.ConstraintLayout>

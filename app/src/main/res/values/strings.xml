@@ -22,9 +22,9 @@
     <string name="login_failed">"Login failed"</string>
     <string name="register_underline"><u>ثبت نام</u></string>
     <string name="title_activity_panel">PanelActivity</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_home">خانه</string>
+    <string name="title_dashboard">تاریخچه</string>
+    <string name="title_notifications">بسته</string>
     <string name="shop_description">یک بسته مشاوره به شما امکان گفتگوی روزانه با مشاورتون رو میده، مشاورتون براتون برنامه هفتگی مینویسه و عملکرد شمارو ارزیابی میکنه و بهتون نمره میده!</string>
     <string name="title_activity_panel_counsel">PanelCounsel</string>
 </resources>
