@@ -55,6 +55,7 @@ public class HomeRepository {
                     Toast.makeText(application, (map.values().toArray()[0]).toString(), Toast.LENGTH_LONG).show();
                 } else {
                     ProfileResponse resp = gson.fromJson(s, ProfileResponse.class);
+                    ProfileResponse.profileResponse = resp;
                     profileResponse.setValue(resp);
                 }
             } catch (Exception e) {

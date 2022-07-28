@@ -1,6 +1,8 @@
 package com.example.consoulingapp.models;
 
 public class ProfileResponse {
+    public static ProfileResponse profileResponse;
+
     public RegisterResponse account;
     public String grade;
     public String state;
@@ -16,6 +18,7 @@ public class ProfileResponse {
     public Boolean has_contract;
     public String ranked_in_country;
     public String ranked_in_area;
+
 
 
 }
