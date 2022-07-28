@@ -43,6 +43,9 @@ public class HomeActiveFragment extends Fragment {
             }
         });
     }
+    private void setTexts(){
+//        binding.termStartText.set
+    }
     @Override
     public void onDestroyView() {
         super.onDestroyView();

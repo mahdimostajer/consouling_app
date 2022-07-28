@@ -6,6 +6,7 @@ import android.widget.Toast;
 
 import androidx.lifecycle.MutableLiveData;
 
+import com.example.consoulingapp.models.DashboardResponse;
 import com.example.consoulingapp.models.ProfileResponse;
 import com.example.consoulingapp.network.HomeUtils;
 import com.google.gson.Gson;
@@ -24,6 +25,9 @@ public class HomeRepository {
 
     public void getProfile() {
         new getProfile(profileResponse).execute();
+    }
+    public void getDashboard() {
+        new getDashboard(DashboardResponse).execute();
     }
 
     public class getProfile extends AsyncTask<String, Void, String> {
@@ -57,6 +61,46 @@ public class HomeRepository {
                     ProfileResponse resp = gson.fromJson(s, ProfileResponse.class);
                     ProfileResponse.profileResponse = resp;
                     profileResponse.setValue(resp);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                Toast.makeText(application, "خطایی رخ داده است", Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+
+
+    public class getDashboard extends AsyncTask<String, Void, String> {
+        MutableLiveData<DashboardResponse> dashboardResponse;
+
+        public getDashboard(MutableLiveData<DashboardResponse> dashboardResponse) {
+            this.dashboardResponse = dashboardResponse;
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+            HomeUtils homeUtils = new HomeUtils();
+            return homeUtils.getDashboard();
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            if (s == null) {
+                Toast.makeText(application, "خطا", Toast.LENGTH_LONG).show();
+                return;
+            }
+            super.onPostExecute(s);
+            Gson gson = new Gson();
+            Type mapType = new TypeToken<Map<String, Object>>() {
+            }.getType();
+            try {
+                Map<String, Object> map = new Gson().fromJson(s, mapType);
+                if (map.size() == 1) {
+                    Toast.makeText(application, (map.values().toArray()[0]).toString(), Toast.LENGTH_LONG).show();
+                } else {
+                    DashboardResponse resp = gson.fromJson(s, DashboardResponse.class);
+//                    DashboardResponse.dashboardResponse = resp;
+                    dashboardResponse.setValue(resp);
                 }
             } catch (Exception e) {
                 e.printStackTrace();

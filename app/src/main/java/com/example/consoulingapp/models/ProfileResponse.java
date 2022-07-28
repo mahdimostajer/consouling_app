@@ -20,5 +20,4 @@ public class ProfileResponse {
     public String ranked_in_area;
 
 
-
 }

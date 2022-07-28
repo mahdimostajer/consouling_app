@@ -10,6 +10,7 @@ public class RegisterResponse {
     public String last_name;
     public String credit_card_no;
     public String birth_date;
+    public String account_type;
     public RegisterResponse(
             String phone_number,
             String date_joined,
@@ -19,7 +20,8 @@ public class RegisterResponse {
             String first_name,
             String last_name,
             String credit_card_no,
-            String birth_date
+            String birth_date,
+            String account_type
     ){
         this.phone_number = phone_number;
         this.date_joined = date_joined;
@@ -30,6 +32,7 @@ public class RegisterResponse {
         this.last_name = last_name;
         this.credit_card_no = credit_card_no;
         this.birth_date = birth_date;
+        this.account_type = account_type;
     }
 
 }
