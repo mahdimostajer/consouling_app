@@ -3,6 +3,7 @@ package com.example.consoulingapp.ui.panel;
 import android.os.Bundle;
 
 import com.example.consoulingapp.R;
+import com.example.consoulingapp.databinding.ActivityPanelBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,13 +15,13 @@ import androidx.navigation.ui.NavigationUI;
 
 public class PanelActivity extends AppCompatActivity {
 
-    private com.example.consoulingapp.databinding.ActivityPanelBinding binding;
+    private ActivityPanelBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = com.example.consoulingapp.databinding.ActivityPanelBinding.inflate(getLayoutInflater());
+        binding = ActivityPanelBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
