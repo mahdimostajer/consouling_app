@@ -13,6 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ConsoulingApp">
         <activity
+            android:name=".ui.panelCounsel.PanelCounsel"
+            android:exported="false"
+            android:label="@string/title_activity_panel_counsel" />
+        <activity
             android:name=".ui.panel.PanelActivity"
             android:exported="false"
             android:label="@string/title_activity_panel" />
