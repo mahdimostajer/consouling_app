@@ -19,7 +19,7 @@ public class ProfileRepository {
     public MutableLiveData<ProfileResponse> profileResponse = new MutableLiveData<>();
     public Application application;
 
-    public ProfileRepository() {
+    public ProfileRepository(Application application) {
         this.application = application;
     }
 
@@ -89,7 +89,9 @@ public class ProfileRepository {
             Gson gson = new Gson();
             try {
                 ProfileResponse resp = gson.fromJson(s, ProfileResponse.class);
+                ProfileResponse.profileResponse = resp;
                 profileResponse.setValue(resp);
+                Toast.makeText(application, "اطلاعات با موفقیت تغییر یافت", Toast.LENGTH_LONG).show();
             }
             catch (Exception e) {
                 Toast.makeText(application, "اطلاعات وارد شده صحیح نیست", Toast.LENGTH_LONG).show();

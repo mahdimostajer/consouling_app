@@ -65,21 +65,21 @@ public class ProfileFragment extends Fragment {
             put(binding.g10.getId(), "10");
             put(binding.g11.getId(), "11");
             put(binding.g12.getId(), "12");
-            put(binding.gradeOther.getId(), "other");
+            put(binding.gradeOther.getId(), "other_grade");
             put(binding.experimental.getId(), "experimental");
             put(binding.mathmatics.getId(), "mathmatics");
             put(binding.humanities.getId(), "humanities");
-            put(binding.fieldOther.getId(), "other");
+            put(binding.fieldOther.getId(), "other_field");
             put(binding.sampad.getId(), "sampad");
             put(binding.numouneh.getId(), "numouneh");
             put(binding.dolati.getId(), "dolati");
             put(binding.gheireDolati.getId(), "gheire_dolati");
-            put(binding.schoolTypeOther.getId(), "other");
+            put(binding.schoolTypeOther.getId(), "other_school_type");
             put(binding.ghalamchi.getId(), "ghalamchi");
             put(binding.gaj.getId(), "gaj");
             put(binding.sanjesh.getId(), "sanjesh");
             put(binding.gozine2.getId(), "gozine2");
-            put(binding.extraCurricularExamOther.getId(), "other");
+            put(binding.extraCurricularExamOther.getId(), "other_exam");
 
         }};
         swappedIds = ids.entrySet().stream().collect(Collectors.toMap(Map.Entry::getValue, Map.Entry::getKey));

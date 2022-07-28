@@ -240,7 +240,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="دهم"
-                        android:checked="true"
 
                         />
                     <RadioButton
@@ -279,7 +278,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="در حال تحصیل"
-                android:checked="true"
 
                 />
             <RadioButton
@@ -305,7 +303,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="تجربی"
-                    android:checked="true"
 
                     />
                 <RadioButton
@@ -344,7 +341,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="سمپاد"
-                    android:checked="true"
 
                     />
                 <RadioButton
@@ -390,7 +386,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="قلمچی"
-                    android:checked="true"
 
                     />
                 <RadioButton

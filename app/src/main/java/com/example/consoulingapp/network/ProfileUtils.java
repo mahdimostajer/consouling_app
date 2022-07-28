@@ -36,19 +36,22 @@ public class ProfileUtils {
             String parent_phone_number
                                 ){
         HttpUrl.Builder urlBuilder = HttpUrl.parse(Client.BASE_URL + "/account/profile/").newBuilder();
-        RequestBody requestBody = new FormBody.Builder()
-                .add("grade",grade)
-                .add("state",state)
-                .add("field",field)
-                .add("school_name",school_name)
-                .add("school_type",school_type)
-                .add("average_level",average_level)
-                .add("extra_curricular_exam",extra_curricular_exam)
-                .add("latest_grade",latest_grade)
-                .add("description",description)
-                .add("parent_career",parent_career)
-                .add("parent_phone_number",parent_phone_number)
-                .build();
+
+        FormBody.Builder builder = new FormBody.Builder();
+
+        addNotNull(builder,"grade",grade);
+        addNotNull(builder,"state",state);
+        addNotNull(builder,"field",field);
+        addNotNull(builder,"school_name",school_name);
+        addNotNull(builder,"school_type",school_type);
+        addNotNull(builder,"average_level",average_level);
+        addNotNull(builder,"extra_curricular_exam",extra_curricular_exam);
+        addNotNull(builder,"latest_grade",latest_grade);
+        addNotNull(builder,"description",description);
+        addNotNull(builder,"parent_career",parent_career);
+        addNotNull(builder,"parent_phone_number",parent_phone_number);
+
+        RequestBody requestBody = builder.build();
         String url = urlBuilder.build().toString();
         Request request = new Request.Builder()
                 .url(url)
@@ -66,5 +69,9 @@ public class ProfileUtils {
             e.printStackTrace();
         }
         return null;
+    }
+    private void addNotNull(FormBody.Builder builder, String name, String value){
+        if(value != null) builder.add(name, value);
+
     }
 }
