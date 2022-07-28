@@ -35,9 +35,7 @@ public class ProfileViewModel extends ViewModel {
             String latest_grade,
             String description,
             String parent_career,
-            String parent_phone_number,
-            String ranked_in_country,
-            String ranked_in_area
+            String parent_phone_number
     ){
         profileRepository.changeDetails(
                 grade,
@@ -50,9 +48,7 @@ public class ProfileViewModel extends ViewModel {
                 latest_grade,
                 description,
                 parent_career,
-                parent_phone_number,
-                ranked_in_country,
-                ranked_in_area
+                parent_phone_number
         );
     }
 

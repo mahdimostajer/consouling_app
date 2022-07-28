@@ -34,9 +34,7 @@ public class ProfileRepository {
             String latest_grade,
             String description,
             String parent_career,
-            String parent_phone_number,
-            String ranked_in_country,
-            String ranked_in_area
+            String parent_phone_number
     ) {
         new fetchUser(profileResponse, application).execute(
                 grade,
@@ -49,9 +47,7 @@ public class ProfileRepository {
                 latest_grade,
                 description,
                 parent_career,
-                parent_phone_number,
-                ranked_in_country,
-                ranked_in_area
+                parent_phone_number
         );
     }
 
@@ -79,9 +75,7 @@ public class ProfileRepository {
                     strings[7],
                     strings[8],
                     strings[9],
-                    strings[10],
-                    strings[11],
-                    strings[12]
+                    strings[10]
             );
         }
 

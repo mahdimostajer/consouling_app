@@ -38,6 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:layoutDirection="rtl"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/shop_title">
 
@@ -224,83 +225,203 @@
 
 
             </com.google.android.material.textfield.TextInputLayout>
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/grade"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="معدل"
-                android:textColorHint="@color/black"
-                app:boxStrokeColor="@color/black"
-                app:boxStrokeWidthFocused="2dp"
-                app:endIconMode="clear_text"
-                app:endIconTint="@color/black"
-                app:hintTextColor="@color/black"
-                app:startIconTint="@color/black">
-                <!--                app:startIconDrawable="@drawable/field_username_icon"-->
 
-
-                <com.google.android.material.textfield.TextInputEditText
+            <RadioGroup
+                    android:id="@+id/grade"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:inputType="text"
-                    android:textColor="@color/black"
-                    android:textCursorDrawable="@null" />
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="40dp"
 
+                    android:orientation="horizontal">
+                    <RadioButton
+                        android:id="@+id/g10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="دهم"
+                        android:checked="true"
 
-            </com.google.android.material.textfield.TextInputLayout>
+                        />
+                    <RadioButton
+                        android:id="@+id/g11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="یازدهم"
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/state"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
+                        />
+                    <RadioButton
+                        android:id="@+id/g12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="دوازدهم"
+
+                        />
+                    <RadioButton
+                        android:id="@+id/grade_other"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="سایر"
+
+                        />
+    </RadioGroup>
+            <RadioGroup
+            android:id="@+id/state"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="40dp"
+
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/under_graduated"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="وضعیت"
-                android:textColorHint="@color/black"
-                app:boxStrokeColor="@color/black"
-                app:boxStrokeWidthFocused="2dp"
-                app:endIconMode="clear_text"
-                app:endIconTint="@color/black"
-                app:hintTextColor="@color/black"
-                app:startIconTint="@color/black">
-                <!--                app:startIconDrawable="@drawable/field_username_icon"-->
+                android:text="در حال تحصیل"
+                android:checked="true"
 
+                />
+            <RadioButton
+                android:id="@+id/graduated"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="فارغ التحصیل"
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:inputType="text"
-                    android:textColor="@color/black"
-                    android:textCursorDrawable="@null" />
+                />
 
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
+            </RadioGroup>
+            <RadioGroup
                 android:id="@+id/field"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="رشته"
-                android:textColorHint="@color/black"
-                app:boxStrokeColor="@color/black"
-                app:boxStrokeWidthFocused="2dp"
-                app:endIconMode="clear_text"
-                app:endIconTint="@color/black"
-                app:hintTextColor="@color/black"
-                app:startIconTint="@color/black">
-                <!--                app:startIconDrawable="@drawable/field_username_icon"-->
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="40dp"
 
+                android:orientation="horizontal">
+                <RadioButton
+                    android:id="@+id/experimental"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="تجربی"
+                    android:checked="true"
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:inputType="text"
-                    android:textColor="@color/black"
-                    android:textCursorDrawable="@null" />
+                    />
+                <RadioButton
+                    android:id="@+id/mathmatics"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ریاضی"
 
+                    />
+                <RadioButton
+                    android:id="@+id/humanities"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="انسانی"
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    />
+                <RadioButton
+                    android:id="@+id/field_other"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="سایر"
+
+                    />
+            </RadioGroup>
+            <RadioGroup
+                android:id="@+id/school_type"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="40dp"
+
+                android:orientation="horizontal">
+                <RadioButton
+                    android:id="@+id/sampad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="سمپاد"
+                    android:checked="true"
+
+                    />
+                <RadioButton
+                    android:id="@+id/numouneh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="نمونه‌دولتی"
+
+                    />
+                <RadioButton
+                    android:id="@+id/dolati"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="دولتی"
+
+                    />
+                <RadioButton
+                    android:id="@+id/gheire_dolati"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="غیر دولتی"
+
+                    />
+                <RadioButton
+                    android:id="@+id/school_type_other"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="سایر"
+
+                    />
+            </RadioGroup>
+            <RadioGroup
+                android:id="@+id/extra_curricular_exam"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="40dp"
+
+                android:orientation="horizontal">
+                <RadioButton
+                    android:id="@+id/ghalamchi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="قلمچی"
+                    android:checked="true"
+
+                    />
+                <RadioButton
+                    android:id="@+id/gaj"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="گاج"
+
+                    />
+                <RadioButton
+                    android:id="@+id/sanjesh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="سنجش"
+
+                    />
+                <RadioButton
+                    android:id="@+id/gozine2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="گزینه‌۲"
+
+                    />
+                <RadioButton
+                    android:id="@+id/extra_curricular_exam_other"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="سایر"
+
+                    />
+            </RadioGroup>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/school_name"
@@ -329,37 +450,11 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/school_type"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="نوع مدرسه"
-                android:textColorHint="@color/black"
-                app:boxStrokeColor="@color/black"
-                app:boxStrokeWidthFocused="2dp"
-                app:endIconMode="clear_text"
-                app:endIconTint="@color/black"
-                app:hintTextColor="@color/black"
-                app:startIconTint="@color/black">
-                <!--                app:startIconDrawable="@drawable/field_username_icon"-->
-
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:inputType="text"
-                    android:textColor="@color/black"
-                    android:textCursorDrawable="@null" />
-
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/average_level"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="average_level"
+                android:hint="میانگین تراز"
                 android:textColorHint="@color/black"
                 app:boxStrokeColor="@color/black"
                 app:boxStrokeWidthFocused="2dp"
@@ -373,33 +468,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:inputType="text"
-                    android:textColor="@color/black"
-                    android:textCursorDrawable="@null" />
-
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/extra_curricular_exam"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="extra_curricular_exam"
-                android:textColorHint="@color/black"
-                app:boxStrokeColor="@color/black"
-                app:boxStrokeWidthFocused="2dp"
-                app:endIconMode="clear_text"
-                app:endIconTint="@color/black"
-                app:hintTextColor="@color/black"
-                app:startIconTint="@color/black">
-                <!--                app:startIconDrawable="@drawable/field_username_icon"-->
-
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:inputType="text"
+                    android:inputType="number"
                     android:textColor="@color/black"
                     android:textCursorDrawable="@null" />
 
@@ -411,7 +480,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="latest_grade"
+                android:hint="آخرین معدل"
                 android:textColorHint="@color/black"
                 app:boxStrokeColor="@color/black"
                 app:boxStrokeWidthFocused="2dp"
@@ -425,7 +494,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:inputType="text"
+                    android:inputType="number"
                     android:textColor="@color/black"
                     android:textCursorDrawable="@null" />
 
@@ -437,7 +506,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="description"
+                android:hint="توضیحات"
                 android:textColorHint="@color/black"
                 app:boxStrokeColor="@color/black"
                 app:boxStrokeWidthFocused="2dp"
@@ -463,7 +532,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="parent_career"
+                android:hint="شغل پدر"
                 android:textColorHint="@color/black"
                 app:boxStrokeColor="@color/black"
                 app:boxStrokeWidthFocused="2dp"
@@ -489,7 +558,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="parent_phone_number"
+                android:hint="تلفن تماس اولیا"
                 android:textColorHint="@color/black"
                 app:boxStrokeColor="@color/black"
                 app:boxStrokeWidthFocused="2dp"
@@ -503,64 +572,14 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:inputType="text"
+                    android:inputType="phone"
                     android:textColor="@color/black"
                     android:textCursorDrawable="@null" />
 
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/ranked_in_country"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="ranked_in_country"
-                android:textColorHint="@color/black"
-                app:boxStrokeColor="@color/black"
-                app:boxStrokeWidthFocused="2dp"
-                app:endIconMode="clear_text"
-                app:endIconTint="@color/black"
-                app:hintTextColor="@color/black"
-                app:startIconTint="@color/black">
-                <!--                app:startIconDrawable="@drawable/field_username_icon"-->
 
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:inputType="text"
-                    android:textColor="@color/black"
-                    android:textCursorDrawable="@null" />
-
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/ranked_in_area"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="ranked_in_area"
-                android:textColorHint="@color/black"
-                app:boxStrokeColor="@color/black"
-                app:boxStrokeWidthFocused="2dp"
-                app:endIconMode="clear_text"
-                app:endIconTint="@color/black"
-                app:hintTextColor="@color/black"
-                app:startIconTint="@color/black">
-                <!--                app:startIconDrawable="@drawable/field_username_icon"-->
-
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:inputType="text"
-                    android:textColor="@color/black"
-                    android:textCursorDrawable="@null" />
-
-
-            </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
     </ScrollView>
 

@@ -15,7 +15,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class ProfileUtils {
-    private OkHttpClient client;
+    private final OkHttpClient client;
 
 
     public ProfileUtils() {
@@ -33,9 +33,7 @@ public class ProfileUtils {
             String latest_grade,
             String description,
             String parent_career,
-            String parent_phone_number,
-            String ranked_in_country,
-            String ranked_in_area
+            String parent_phone_number
                                 ){
         HttpUrl.Builder urlBuilder = HttpUrl.parse(Client.BASE_URL + "/account/profile/").newBuilder();
         RequestBody requestBody = new FormBody.Builder()
@@ -50,8 +48,6 @@ public class ProfileUtils {
                 .add("description",description)
                 .add("parent_career",parent_career)
                 .add("parent_phone_number",parent_phone_number)
-                .add("ranked_in_country",ranked_in_country)
-                .add("ranked_in_area",ranked_in_area)
                 .build();
         String url = urlBuilder.build().toString();
         Request request = new Request.Builder()
