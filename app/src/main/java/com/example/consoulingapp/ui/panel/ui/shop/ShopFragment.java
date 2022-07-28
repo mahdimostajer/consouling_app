@@ -24,6 +24,8 @@ import com.example.consoulingapp.databinding.FragmentShopBinding;
 import com.google.android.material.card.MaterialCardView;
 import com.example.consoulingapp.models.Course;
 
+import java.util.List;
+
 public class ShopFragment extends Fragment {
 
     private FragmentShopBinding binding;
@@ -44,9 +46,9 @@ public class ShopFragment extends Fragment {
         mPreferences = requireContext().getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
         String token = mPreferences.getString(ACCESS_TOKEN, null);
         shopViewModel.getCourses(token);
-        shopViewModel.courses.observe(requireActivity(), new Observer<Course>() {
+        shopViewModel.courses.observe(requireActivity(), new Observer<List<Course>>() {
             @Override
-            public void onChanged(Course course) {
+            public void onChanged(List<Course> courses) {
 
             }
         });
