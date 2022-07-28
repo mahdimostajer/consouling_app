@@ -1,325 +1,339 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/register_login_bg"
+    android:layout_marginBottom="50dp"
     tools:context=".ui.panel.ui.shop.ShopFragment">
-    <TextView
-        android:id="@+id/shop_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="48sp"
-        android:layout_marginRight="24sp"
-        android:textStyle="bold"
-        android:text="خرید بسته مشاوره"
-        android:textAllCaps="true"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        android:transitionName="transition_title_text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/shop_description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:paddingHorizontal="16sp"
-        android:paddingTop="16sp"
-        android:text="@string/shop_description"
-        android:textAllCaps="true"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        android:transitionName="transition_title_text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/shop_title" />
-
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/package1"
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="10dp"
-        android:layout_marginVertical="20dp"
-        android:foreground="?attr/selectableItemBackground"
-        app:cardCornerRadius="24dp"
-        app:cardElevation="20dp"
-        app:contentPadding="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/shop_description">
+        android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <TextView
+            android:id="@+id/shop_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="48sp"
+            android:layout_marginRight="24sp"
+            android:text="خرید بسته مشاوره"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:transitionName="transition_title_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/shop_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:paddingHorizontal="16sp"
+            android:paddingTop="16sp"
+            android:text="@string/shop_description"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:transitionName="transition_title_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/shop_title" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/course_recyclerview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textDirection="rtl">
+            app:layout_constraintTop_toBottomOf="@id/shop_description"
+            tools:listitem="@layout/course_item" />
+        <!--    <com.google.android.material.card.MaterialCardView-->
+        <!--        android:id="@+id/package1"-->
+        <!--        android:layout_width="match_parent"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:layout_marginHorizontal="10dp"-->
+        <!--        android:layout_marginVertical="20dp"-->
+        <!--        android:foreground="?attr/selectableItemBackground"-->
+        <!--        app:cardCornerRadius="24dp"-->
+        <!--        app:cardElevation="20dp"-->
+        <!--        app:contentPadding="16dp"-->
+        <!--        app:layout_constraintEnd_toEndOf="parent"-->
+        <!--        app:layout_constraintStart_toStartOf="parent"-->
+        <!--        app:layout_constraintTop_toBottomOf="@+id/shop_description">-->
 
-            <TextView
-                android:id="@+id/package_name1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+        <!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:textDirection="rtl">-->
 
-                android:text="بسته مشاوره یک‌ماهه"
-                android:textAllCaps="true"
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                android:transitionName="transition_title_text"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <!--            <TextView-->
+        <!--                android:id="@+id/package_name1"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
 
-            <TextView
-                android:id="@+id/price1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+        <!--                android:text="بسته مشاوره یک‌ماهه"-->
+        <!--                android:textAllCaps="true"-->
+        <!--                android:textColor="@color/black"-->
+        <!--                android:textSize="24sp"-->
+        <!--                android:textStyle="bold"-->
+        <!--                android:transitionName="transition_title_text"-->
+        <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--                app:layout_constraintEnd_toEndOf="parent"-->
+        <!--                app:layout_constraintTop_toTopOf="parent" />-->
 
-                android:padding="4sp"
-                android:text="۳۰۰,۰۰۰"
-                android:textAllCaps="true"
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                android:transitionName="transition_title_text"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/price_text1"
-                app:layout_constraintTop_toTopOf="parent" />
+        <!--            <TextView-->
+        <!--                android:id="@+id/price1"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
 
-            <TextView
-                android:id="@+id/price_text1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+        <!--                android:padding="4sp"-->
+        <!--                android:text="۳۰۰,۰۰۰"-->
+        <!--                android:textAllCaps="true"-->
+        <!--                android:textColor="@color/black"-->
+        <!--                android:textSize="24sp"-->
+        <!--                android:textStyle="bold"-->
+        <!--                android:transitionName="transition_title_text"-->
+        <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--                app:layout_constraintStart_toEndOf="@+id/price_text1"-->
+        <!--                app:layout_constraintTop_toTopOf="parent" />-->
 
-                android:text="تومان"
-                android:textAllCaps="true"
-                android:textColor="@color/gray"
-                android:textSize="16sp"
-                android:transitionName="transition_title_text"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <!--            <TextView-->
+        <!--                android:id="@+id/price_text1"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </com.google.android.material.card.MaterialCardView>
+        <!--                android:text="تومان"-->
+        <!--                android:textAllCaps="true"-->
+        <!--                android:textColor="@color/gray"-->
+        <!--                android:textSize="16sp"-->
+        <!--                android:transitionName="transition_title_text"-->
+        <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--                app:layout_constraintStart_toStartOf="parent"-->
+        <!--                app:layout_constraintTop_toTopOf="parent" />-->
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/package2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="10dp"
-        android:layout_marginVertical="20dp"
-        android:foreground="?attr/selectableItemBackground"
-        app:cardCornerRadius="24dp"
-        app:cardElevation="20dp"
-        app:contentPadding="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/package1">
+        <!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+        <!--    </com.google.android.material.card.MaterialCardView>-->
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <!--    <com.google.android.material.card.MaterialCardView-->
+        <!--        android:id="@+id/package2"-->
+        <!--        android:layout_width="match_parent"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:layout_marginHorizontal="10dp"-->
+        <!--        android:layout_marginVertical="20dp"-->
+        <!--        android:foreground="?attr/selectableItemBackground"-->
+        <!--        app:cardCornerRadius="24dp"-->
+        <!--        app:cardElevation="20dp"-->
+        <!--        app:contentPadding="16dp"-->
+        <!--        app:layout_constraintEnd_toEndOf="parent"-->
+        <!--        app:layout_constraintStart_toStartOf="parent"-->
+        <!--        app:layout_constraintTop_toBottomOf="@+id/package1">-->
+
+        <!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:textDirection="rtl">-->
+
+        <!--            <TextView-->
+        <!--                android:id="@+id/package_name2"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+
+        <!--                android:text="بسته مشاوره سه‌ماهه"-->
+        <!--                android:textAllCaps="true"-->
+        <!--                android:textColor="@color/black"-->
+        <!--                android:textSize="24sp"-->
+        <!--                android:textStyle="bold"-->
+        <!--                android:transitionName="transition_title_text"-->
+        <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--                app:layout_constraintEnd_toEndOf="parent"-->
+        <!--                app:layout_constraintTop_toTopOf="parent" />-->
+
+        <!--            <TextView-->
+        <!--                android:id="@+id/price2"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+
+        <!--                android:padding="4sp"-->
+        <!--                android:text="۸۵۰,۰۰۰"-->
+        <!--                android:textAllCaps="true"-->
+        <!--                android:textColor="@color/black"-->
+        <!--                android:textSize="24sp"-->
+        <!--                android:textStyle="bold"-->
+        <!--                android:transitionName="transition_title_text"-->
+        <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--                app:layout_constraintStart_toEndOf="@+id/price_text2"-->
+        <!--                app:layout_constraintTop_toTopOf="parent" />-->
+
+        <!--            <TextView-->
+        <!--                android:id="@+id/price_text2"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+
+        <!--                android:text="تومان"-->
+        <!--                android:textAllCaps="true"-->
+        <!--                android:textColor="@color/gray"-->
+        <!--                android:textSize="16sp"-->
+        <!--                android:transitionName="transition_title_text"-->
+        <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--                app:layout_constraintStart_toStartOf="parent"-->
+        <!--                app:layout_constraintTop_toTopOf="parent" />-->
+
+        <!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+        <!--    </com.google.android.material.card.MaterialCardView>-->
+
+        <!--    <com.google.android.material.card.MaterialCardView-->
+        <!--        android:id="@+id/package3"-->
+        <!--        android:layout_width="match_parent"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:layout_marginHorizontal="10dp"-->
+        <!--        android:layout_marginVertical="20dp"-->
+        <!--        android:foreground="?attr/selectableItemBackground"-->
+        <!--        app:cardCornerRadius="24dp"-->
+        <!--        app:cardElevation="20dp"-->
+        <!--        app:contentPadding="16dp"-->
+        <!--        app:layout_constraintEnd_toEndOf="parent"-->
+        <!--        app:layout_constraintStart_toStartOf="parent"-->
+        <!--        app:layout_constraintTop_toBottomOf="@+id/package2">-->
+
+        <!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:textDirection="rtl">-->
+
+        <!--            <TextView-->
+        <!--                android:id="@+id/package_name3"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+
+        <!--                android:text="بسته مشاوره شش‌ماهه"-->
+        <!--                android:textAllCaps="true"-->
+        <!--                android:textColor="@color/black"-->
+        <!--                android:textSize="24sp"-->
+        <!--                android:textStyle="bold"-->
+        <!--                android:transitionName="transition_title_text"-->
+        <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--                app:layout_constraintEnd_toEndOf="parent"-->
+        <!--                app:layout_constraintTop_toTopOf="parent" />-->
+
+        <!--            <TextView-->
+        <!--                android:id="@+id/price3"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+
+        <!--                android:padding="4sp"-->
+        <!--                android:text="۱,۶۵۰,۰۰۰"-->
+        <!--                android:textAllCaps="true"-->
+        <!--                android:textColor="@color/black"-->
+        <!--                android:textSize="24sp"-->
+        <!--                android:textStyle="bold"-->
+        <!--                android:transitionName="transition_title_text"-->
+        <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--                app:layout_constraintStart_toEndOf="@+id/price_text3"-->
+        <!--                app:layout_constraintTop_toTopOf="parent" />-->
+
+        <!--            <TextView-->
+        <!--                android:id="@+id/price_text3"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+
+        <!--                android:text="تومان"-->
+        <!--                android:textAllCaps="true"-->
+        <!--                android:textColor="@color/gray"-->
+        <!--                android:textSize="16sp"-->
+        <!--                android:transitionName="transition_title_text"-->
+        <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--                app:layout_constraintStart_toStartOf="parent"-->
+        <!--                app:layout_constraintTop_toTopOf="parent" />-->
+
+        <!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+        <!--    </com.google.android.material.card.MaterialCardView>-->
+
+        <!--    <com.google.android.material.card.MaterialCardView-->
+        <!--        android:id="@+id/package4"-->
+        <!--        android:layout_width="match_parent"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:layout_marginHorizontal="10dp"-->
+        <!--        android:layout_marginVertical="20dp"-->
+        <!--        android:foreground="?attr/selectableItemBackground"-->
+        <!--        app:cardCornerRadius="24dp"-->
+        <!--        app:cardElevation="20dp"-->
+        <!--        app:contentPadding="16dp"-->
+        <!--        app:layout_constraintEnd_toEndOf="parent"-->
+        <!--        app:layout_constraintStart_toStartOf="parent"-->
+        <!--        app:layout_constraintTop_toBottomOf="@+id/package3">-->
+
+        <!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:textDirection="rtl">-->
+
+        <!--            <TextView-->
+        <!--                android:id="@+id/package_name4"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+
+        <!--                android:text="بسته مشاوره یک‌ساله"-->
+        <!--                android:textAllCaps="true"-->
+        <!--                android:textColor="@color/black"-->
+        <!--                android:textSize="24sp"-->
+        <!--                android:textStyle="bold"-->
+        <!--                android:transitionName="transition_title_text"-->
+        <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--                app:layout_constraintEnd_toEndOf="parent"-->
+        <!--                app:layout_constraintTop_toTopOf="parent" />-->
+
+        <!--            <TextView-->
+        <!--                android:id="@+id/price4"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+
+        <!--                android:padding="4sp"-->
+        <!--                android:text="۳,۲۰۰,۰۰۰"-->
+        <!--                android:textAllCaps="true"-->
+        <!--                android:textColor="@color/black"-->
+        <!--                android:textSize="24sp"-->
+        <!--                android:textStyle="bold"-->
+        <!--                android:transitionName="transition_title_text"-->
+        <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--                app:layout_constraintStart_toEndOf="@+id/price_text4"-->
+        <!--                app:layout_constraintTop_toTopOf="parent" />-->
+
+        <!--            <TextView-->
+        <!--                android:id="@+id/price_text4"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+
+        <!--                android:text="تومان"-->
+        <!--                android:textAllCaps="true"-->
+        <!--                android:textColor="@color/gray"-->
+        <!--                android:textSize="16sp"-->
+        <!--                android:transitionName="transition_title_text"-->
+        <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--                app:layout_constraintStart_toStartOf="parent"-->
+        <!--                app:layout_constraintTop_toTopOf="parent" />-->
+
+        <!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+        <!--    </com.google.android.material.card.MaterialCardView>-->
+
+
+        <Button
+            android:id="@+id/pay_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textDirection="rtl">
+            android:layout_margin="8sp"
+            android:background="#6AF3FF"
+            android:elevation="5dp"
+            android:onClick="goToPaymentSection"
+            android:text="پرداخت و خرید"
+            android:textColor="@color/black"
+            android:textStyle="bold"
 
-            <TextView
-                android:id="@+id/package_name2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:text="بسته مشاوره سه‌ماهه"
-                android:textAllCaps="true"
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                android:transitionName="transition_title_text"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/price2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:padding="4sp"
-                android:text="۸۵۰,۰۰۰"
-                android:textAllCaps="true"
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                android:transitionName="transition_title_text"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/price_text2"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/price_text2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:text="تومان"
-                android:textAllCaps="true"
-                android:textColor="@color/gray"
-                android:textSize="16sp"
-                android:transitionName="transition_title_text"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </com.google.android.material.card.MaterialCardView>
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/package3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="10dp"
-        android:layout_marginVertical="20dp"
-        android:foreground="?attr/selectableItemBackground"
-        app:cardCornerRadius="24dp"
-        app:cardElevation="20dp"
-        app:contentPadding="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/package2">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textDirection="rtl">
-
-            <TextView
-                android:id="@+id/package_name3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:text="بسته مشاوره شش‌ماهه"
-                android:textAllCaps="true"
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                android:transitionName="transition_title_text"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/price3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:padding="4sp"
-                android:text="۱,۶۵۰,۰۰۰"
-                android:textAllCaps="true"
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                android:transitionName="transition_title_text"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/price_text3"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/price_text3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:text="تومان"
-                android:textAllCaps="true"
-                android:textColor="@color/gray"
-                android:textSize="16sp"
-                android:transitionName="transition_title_text"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </com.google.android.material.card.MaterialCardView>
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/package4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="10dp"
-        android:layout_marginVertical="20dp"
-        android:foreground="?attr/selectableItemBackground"
-        app:cardCornerRadius="24dp"
-        app:cardElevation="20dp"
-        app:contentPadding="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/package3">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textDirection="rtl">
-
-            <TextView
-                android:id="@+id/package_name4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:text="بسته مشاوره یک‌ساله"
-                android:textAllCaps="true"
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                android:transitionName="transition_title_text"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/price4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:padding="4sp"
-                android:text="۳,۲۰۰,۰۰۰"
-                android:textAllCaps="true"
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                android:transitionName="transition_title_text"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/price_text4"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/price_text4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:text="تومان"
-                android:textAllCaps="true"
-                android:textColor="@color/gray"
-                android:textSize="16sp"
-                android:transitionName="transition_title_text"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </com.google.android.material.card.MaterialCardView>
-
-    <Button
-        android:id="@+id/pay_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8sp"
-        android:background="#6AF3FF"
-        android:elevation="5dp"
-        android:textStyle="bold"
-        android:onClick="goToPaymentSection"
-        android:text="پرداخت و خرید"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/package4" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/course_recyclerview" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

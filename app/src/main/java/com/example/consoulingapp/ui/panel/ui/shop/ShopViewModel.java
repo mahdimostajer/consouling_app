@@ -16,13 +16,19 @@ import java.util.List;
 public class ShopViewModel extends ViewModel {
 
     public ShopRepository shopRepository;
-    public MutableLiveData<List<Course>> courses;
+    public MutableLiveData<List<Course>> courses = new MutableLiveData<>();
+    public MutableLiveData<Integer> selectedId = new MutableLiveData<>();
 
     public ShopViewModel() {
         this.shopRepository = new ShopRepository();
         this.courses = shopRepository.courses;
     }
 
-    public void getCourses(String token) {
+    public void getCourses() {
+        shopRepository.getCourses();
+    }
+
+    public void buy(int id){
+        shopRepository.buy(id);
     }
 }

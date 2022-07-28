@@ -19,11 +19,12 @@ public class ShopUtils {
         client = Client.getInstance().client;
     }
 
-    public String getCourses(String token){
-        HttpUrl.Builder urlBuilder = HttpUrl.parse(Client.BASE_URL + "consultation/courses/").newBuilder();
+    public String getCourses() {
+        HttpUrl.Builder urlBuilder = HttpUrl.parse(Client.BASE_URL + "/consultation/courses/").newBuilder();
         String url = urlBuilder.build().toString();
         Request request = new Request.Builder()
                 .url(url)
+                .headers(Client.getInstance().headers)
                 .build();
 
 
@@ -34,7 +35,34 @@ public class ShopUtils {
                 return null;
             }
             String res = response.body().string();
-            Log.d("response",res);
+            Log.d("response", res);
+            return res;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public String buy(int id) {
+        HttpUrl.Builder urlBuilder = HttpUrl.parse(Client.BASE_URL + "/consultation/courses/" + id + "/purchase/").newBuilder();
+        String url = urlBuilder.build().toString();
+        RequestBody requestBody = new FormBody.Builder().build();
+
+        Request request = new Request.Builder()
+                .url(url)
+                .post(requestBody)
+                .headers(Client.getInstance().headers)
+                .build();
+
+
+        try {
+            Response response = client.newCall(request).execute();
+            if (response.code() == 401) {
+                Log.d("not authorized", "gholam");
+                return null;
+            }
+            String res = response.body().string();
+            Log.d("response", res);
             return res;
         } catch (IOException e) {
             e.printStackTrace();
